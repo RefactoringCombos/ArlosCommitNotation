@@ -6,7 +6,7 @@
 | B | Bug | 
 | !!! | non-provable refactoring | 
 | c | comments (add/delete) | 
-| e | enviorment (non-code) changes | 
+| e | environment (non-code) changes | 
 | t | Test only | 
 | r | Provable Refactoring | 
 | a | Automated formatting | 
@@ -24,3 +24,5 @@ A provable refactoring requires the burden of proof. The main methods of proof a
 * Scripted manual refactoring, using the compiler to verify each step
 * Very Highly tested code, with the tests providing proof
 
+# Living Documentation
+We invite you to submit pull requests to help evolve this notation and methodology.
