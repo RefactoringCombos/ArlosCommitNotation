@@ -1,11 +1,9 @@
 # ArlosCommitNotation
 
-
- |** prefix        **|** Meaning       **| 
-:-----:|:-----:|:-----:|:-----:
- | ------------- | ------------- | 
- | F             | Feature       | 
- | B | Bug | 
+| Prefix  | Meaning |
+| ------------- | ------------- |
+| F             | Feature       | 
+| B | Bug | 
  | !!! | non-provable refactoring | 
  | c | comments (add/delete) | 
  | e | enviorment (non-code) changes | 
