@@ -6,6 +6,7 @@
 | B | Bug | 
 | !!! | non-provable refactoring | 
 | c | comments (add/delete) | 
+| d | developer documentation changes (not end-user facing) |
 | e | environment (non-code) changes | 
 | t | Test only | 
 | r | Provable Refactoring | 
