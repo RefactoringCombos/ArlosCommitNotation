@@ -5,7 +5,7 @@
 | F             | Feature       | 
 | B | Bug | 
 | !!! | non-provable refactoring | 
-| *** | does not compile intermeditate step | 
+| *** | does not compile intermediate step | 
 | c | comments (add/delete) | 
 | d | developer documentation changes (not end-user facing) |
 | e | environment (non-code) changes | 
