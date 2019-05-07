@@ -16,7 +16,7 @@
 Key: lower case means low risk.
 
 # Description
-Arlo's Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
+[Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
 
 # Provable Refactorings
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
