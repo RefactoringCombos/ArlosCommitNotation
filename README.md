@@ -1,11 +1,16 @@
 # Arlo's Commit Notation
 
+## Upper case: Deliberate behavior changes
+
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
 | F       | Feature                                                   |
 | B       | Bug                                                       |
-| !!!     | non-provable refactoring                                  |
-| ***     | does not compile intermediate step                        |
+
+## Lower case: Low risk
+
+| Prefix  | Meaning                                                   |
+| ------- | --------------------------------------------------------- |
 | c       | comments (add/delete)                                     |
 | d       | developer documentation changes (not end-user facing)     |
 | e       | environment (non-code) changes                            |
@@ -13,7 +18,12 @@
 | r       | Provable Refactoring                                      |
 | a       | Automated formatting                                      |
 
-Key: lower case means low risk.
+## Three characters: The danger zone!
+
+| Prefix  | Meaning                                                   |
+| ------- | --------------------------------------------------------- |
+| !!!     | non-provable refactoring                                  |
+| ***     | does not compile intermediate step                        |
 
 # Description
 
