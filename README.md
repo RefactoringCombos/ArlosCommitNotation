@@ -32,6 +32,7 @@
 # Provable Refactorings
 
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
+[Recipes Here](https://github.com/InnovatingTeams/provable-refactorings)
 
 A provable refactoring requires the burden of proof. The main methods of proof are
 * automated refactoring via tool
