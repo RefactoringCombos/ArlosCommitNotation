@@ -37,7 +37,9 @@ If you can get a series of commits that is all lowercase commits, you can deploy
 A provable refactoring requires the burden of proof. The main methods of proof are
 * automated refactoring via tool
 * Scripted manual refactoring, using the compiler to verify each step
-* Very Highly tested code, with the tests providing proof
+* DANGER: Very Highly tested code, with the tests providing proof
+
+Note that only the first two levels can prove bug-for-bug copmatability. The last can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
 # Living Documentation
 
