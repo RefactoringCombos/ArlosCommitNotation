@@ -9,14 +9,14 @@
 
 ## Lower case: Low risk
 
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| c       | comments (add/delete)                                     |
-| d       | developer documentation changes (not end-user facing)     |
-| e       | environment (non-code) changes                            |
-| t       | Test only                                                 |
-| r       | Provable Refactoring                                      |
-| a       | Automated formatting                                      |
+| Prefix  | Meaning                                                      |
+| ------- | ------------------------------------------------------------ |
+| c       | comments (add/delete)                                        |
+| d       | developer documentation changes (not end-user facing)        |
+| e       | environment (non-code) changes that affect development setup |
+| t       | Test only                                                    |
+| r       | Provable Refactoring                                         |
+| a       | Automated formatting                                         |
 
 ## Three characters: The danger zone!
 
