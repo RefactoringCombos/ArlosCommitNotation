@@ -12,10 +12,10 @@
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
 | c       | comments (add/delete)                                        |
-| d       | developer documentation changes (not end-user facing <sup>[1]</sup>)        |
+| d       | developer documentation changes (not end-user facing<sup>[1]</sup>)        |
 | e       | environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
-| r       | Provable Refactoring <sup>[2]</sup>                                    |
+| r       | Provable Refactoring<sup>[2]</sup>                 |
 | a       | Automated formatting                                         |
 
 ## Three characters: The danger zone!
