@@ -12,9 +12,9 @@
 
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
-| c       | comments (add/delete)                                        |
-| d       | developer documentation changes (not end-user facing)        |
-| e       | environment (non-code) changes that affect development setup |
+| c       | Comments (add/delete)                                        |
+| d       | Developer documentation changes (not end-user facing)        |
+| e       | Environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
 | r       | Provable Refactoring                                         |
 | a       | Automated formatting                                         |
@@ -23,8 +23,8 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| !!!     | non-provable refactoring                                  |
-| ***     | does not compile intermediate step                        |
+| !!!     | Non-provable refactoring                                  |
+| ***     | Does not compile intermediate step                        |
 
 # Description
 
