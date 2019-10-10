@@ -47,9 +47,9 @@ All of these recipes use static analysis to demonstrate safety. As such, they wo
 
 These are refactorings with a lower standard of proof:
 1. Commit contains only a single refactoring.
-2. Refactoring is named and published (e.g., in [Fowler's refactoring catalog](https://refactoring.com/catalog/))
-3. Your entire product is very highly tested
-4. You followed the published recipe, including running full-suite test runs when indicated
+2. Refactoring is named and published (e.g., in [Fowler's refactoring catalog](https://refactoring.com/catalog/)).
+3. Your entire product is very highly tested.
+4. You followed the published recipe, including running full-suite test runs when indicated.
 
 Note that this can not prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
