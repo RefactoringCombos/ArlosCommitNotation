@@ -4,8 +4,8 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F       | Feature                                                   |
-| B       | Bug                                                       |
+| F       | Feature (<= 3 LoC)                                                   |
+| B       | Bug (<= 3 LoC)                                                       |
 
 ## Lower case: Low risk
 
@@ -23,6 +23,8 @@
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
 | !!!     | non-provable refactoring                                  |
+| F!!       | Feature (> 3 LoC)                                                   |
+| B!!       | Bug (> LoC)                                                       |
 | ***     | does not compile intermediate step                        |
 
 # Description
