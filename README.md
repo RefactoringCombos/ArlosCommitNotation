@@ -12,10 +12,10 @@
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
 | c       | comments (add/delete)                                        |
-| d       | developer documentation changes (not end-user facing [1])        |
+| d       | developer documentation changes (not end-user facing <sup>[1]</sup>)        |
 | e       | environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
-| r       | Provable Refactoring [2]                                        |
+| r       | Provable Refactoring <sup>[2]</sup>                                    |
 | a       | Automated formatting                                         |
 
 ## Three characters: The danger zone!
@@ -30,7 +30,7 @@
 [Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
 
 # Provable Refactorings
-[1]:#-provable-refactorings
+[2]:#provable-refactorings
 
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
 [Recipes Here](https://github.com/InnovatingTeams/provable-refactorings)
