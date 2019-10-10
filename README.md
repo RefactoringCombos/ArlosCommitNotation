@@ -43,7 +43,7 @@ A provable refactoring requires the burden of proof. The main methods of proof a
 Note that only the first two levels can prove bug-for-bug copmatability. The last can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
 # End-User Documentation
-[1]:#end-user-documentaton
+[1]:#end-user-documentation
 
 End user documentation is a feature, bugfix, or refactoring, depending on its nature. Use those codes (including levels of risk) accordingly.
 
