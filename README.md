@@ -12,10 +12,10 @@
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
 | c       | comments (add/delete)                                        |
-| d       | developer documentation changes (not end-user facing)        |
+| d       | developer documentation changes (not end-user facing [1])        |
 | e       | environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
-| r       | Provable Refactoring                                         |
+| r       | Provable Refactoring [2]                                        |
 | a       | Automated formatting                                         |
 
 ## Three characters: The danger zone!
@@ -30,6 +30,7 @@
 [Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
 
 # Provable Refactorings
+[1]:#-provable-refactorings
 
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
 [Recipes Here](https://github.com/InnovatingTeams/provable-refactorings)
@@ -40,6 +41,11 @@ A provable refactoring requires the burden of proof. The main methods of proof a
 * DANGER: Very Highly tested code, with the tests providing proof
 
 Note that only the first two levels can prove bug-for-bug copmatability. The last can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
+
+# End-User Documentation
+[1]:#end-user-documentaton
+
+End user documentation is a feature, bugfix, or refactoring, depending on its nature. Use those codes (including levels of risk) accordingly.
 
 # Living Documentation
 
