@@ -4,8 +4,8 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F       | Feature (<= 8 LoC)                                                   |
-| B       | Bug (<= 8 LoC)                                                       |
+| F       | Feature (<= 8 LoC<sup>[4]</sup>)                        |
+| B       | Bug (<= 8 LoC<sup>[4]</sup>)                              |
 
 ## Lower case: Low risk
 
@@ -23,8 +23,8 @@
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
 | !!!     | non-provable refactoring                                  |
-| F!!       | Feature (> 8 LoC)                                                   |
-| B!!       | Bug (> 8 LoC)                                                       |
+| F!!       | Feature (> 8 LoC<sup>[4]</sup>)                             |
+| B!!       | Bug (> 8 LoC<sup>[4]</sup>)                                   |
 | ***     | does not compile intermediate step                        |
 
 # Description
@@ -42,6 +42,19 @@ A provable refactoring requires the burden of proof. The main methods of proof a
 * DANGER: Very Highly tested code, with the tests providing proof
 
 Note that only the first two levels can prove bug-for-bug copmatability. The last can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
+
+# Small Features and Bug Fixes
+[4]:#small-features-and-bug-fixes
+
+Features and bug fixes intentionally change behavior. This makes them much riskier than refactorings. It is not possible to prove that they have only the intended effect. However, small changes are much lower risk for three reasons:
+
+1. It's only possible when the code is well-organized already.
+2. It's easy to see the possible side effects of small chunks of code.
+3. It's easy to code review, so you are likely to get good reviews.
+
+Therefore, we treat any feature or bug fix as high risk if it changes more than 8 LoC in one commit. This includes test changes.
+
+One good approach to enable small features is to refactor until the feature change is easy, then add it. Then add the feature one piece at a time, with a test for each.
 
 # Living Documentation
 
