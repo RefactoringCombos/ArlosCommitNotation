@@ -13,10 +13,10 @@
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
 | c       | Comments (add/delete)                                        |
-| d       | Developer documentation changes (not end-user facing)        |
+| d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
 | e       | Environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
-| r       | Provable Refactoring                                         |
+| r       | Provable Refactoring<sup>[2]</sup>                 |
 | a       | Automated formatting                                         |
 
 ## Three characters: The danger zone!
@@ -31,6 +31,7 @@
 [Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
 
 # Provable Refactorings
+[2]:#provable-refactorings
 
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
 
@@ -54,6 +55,11 @@ These are refactorings with a lower standard of proof:
 Note that this can not prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
 Requirement 3 is there because many refactorings can have non-local effects. It is not sufficient to have great tests on the code you are changing. You also need great tests on the code that you are not intending to change, to demonstrate that you didn't. Therefore, until your entire codebase is very highly tested, you will only be able to use the `R` commit designation on new code that is uncalled by your product.
+
+# End-User Documentation
+[1]:#end-user-documentation
+
+End user documentation is a feature, bugfix, or refactoring, depending on its nature. Use those codes (including levels of risk) accordingly.
 
 # Living Documentation
 
