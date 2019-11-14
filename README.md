@@ -1,6 +1,6 @@
 # Arlo's Commit Notation
 
-## Upper case: Deliberate behavior changes
+## Upper case: May change behavior
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
@@ -23,7 +23,7 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| !!!     | Non-provable refactoring                                  |
+| R!!     | Non-provable refactoring                                  |
 | F!!     | Feature (> 8 LoC<sup>[4]</sup>)                             |
 | B!!     | Bug (> 8 LoC<sup>[4]</sup>)                                   |
 | ***     | Does not compile intermediate step                        |
