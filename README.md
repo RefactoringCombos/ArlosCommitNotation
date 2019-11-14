@@ -12,20 +12,20 @@
 
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
-| c       | Comments (add/delete)                                        |
-| d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
-| e       | Environment (non-code) changes that affect development setup |
 | t       | Test only                                                    |
+| d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
+| a       | Automated formatting / generation                               |
 | r       | Provable Refactoring<sup>[2]</sup>                 |
-| a       | Automated formatting                                         |
+| c       | Comments (add/delete)                                        |
+| e       | Environment (non-code) changes that affect development setup |
 
 ## Three characters: The danger zone!
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| R!!     | Non-provable refactoring                                  |
 | F!!     | Feature (> 8 LoC<sup>[4]</sup>)                             |
 | B!!     | Bug (> 8 LoC<sup>[4]</sup>)                                   |
+| R!!     | Non-provable refactoring                                  |
 | ***     | Does not compile intermediate step                        |
 
 # Description
