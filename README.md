@@ -79,3 +79,5 @@ One good approach to enable small features is to refactor until the feature chan
 # Living Documentation
 
 We invite you to submit pull requests to help evolve this notation and methodology.
+
+*[LoC]: lines of code
