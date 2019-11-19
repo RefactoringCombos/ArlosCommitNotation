@@ -4,8 +4,8 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F       | Feature (<= 8 LoC<sup>[4]</sup>)                        |
-| B       | Bug (<= 8 LoC<sup>[4]</sup>)                              |
+| F       | Feature (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                        |
+| B       | Bug (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                              |
 | R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
 
 ## Lower case: Low risk
@@ -23,8 +23,8 @@
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F!!     | Feature (> 8 LoC<sup>[4]</sup>)                             |
-| B!!     | Bug (> 8 LoC<sup>[4]</sup>)                                   |
+| F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
+| B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
 | R!!     | Non-provable refactoring                                  |
 | ***     | Does not compile intermediate step                        |
 
@@ -72,7 +72,7 @@ Features and bug fixes intentionally change behavior. This makes them much riski
 2. It's easy to see the possible side effects of small chunks of code.
 3. It's easy to code review, so you are likely to get good reviews.
 
-Therefore, we treat any feature or bug fix as high risk if it changes more than 8 LoC in one commit. This includes test changes.
+Therefore, we treat any feature or bug fix as high risk if it changes more than 8 lines of code in one commit. This includes test changes.
 
 One good approach to enable small features is to refactor until the feature change is easy, then add it. Then add the feature one piece at a time, with a test for each.
 
