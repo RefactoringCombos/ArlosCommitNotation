@@ -17,7 +17,7 @@
 | a       | Automated formatting / generation                               |
 | r       | Provable Refactoring<sup>[2]</sup>                 |
 | c       | Comments (add/delete)                                        |
-| e       | Environment (non-code) changes that affect development setup |
+| e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
 
 ## Three characters: The danger zone!
 
