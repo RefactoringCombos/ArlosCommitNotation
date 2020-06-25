@@ -46,7 +46,7 @@ With discipline these can prove bug-for-bug compatibility. They demonstrate safe
 All of these recipes use static analysis to demonstrate safety. As such, they work equally well on code that lacks tests. They can be a good way to make code testable. Their downside is that they are language-specific.
 
 # Test-supported Procedural Refactorings
-[3]:#test-supported-refactorings
+[3]:#test-supported-procedural-refactorings
 
 These are refactorings with a lower standard of proof:
 1. Commit contains only a single refactoring.
