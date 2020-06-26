@@ -14,9 +14,9 @@
 | ------- | ------------------------------------------------------------ |
 | t       | Test only                                                    |
 | d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
-| a       | Automated formatting / generation                               |
-| r       | Provable Refactoring<sup>[2]</sup>                 |
-| c       | Comments (add/delete)                                        |
+| a       | Automated formatting / generation                            |
+| r       | Provable Refactoring<sup>[2]</sup>                           |
+| c       | Comments (add/delete/modify)                                 |
 | e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
 
 ## Three characters: The danger zone!
