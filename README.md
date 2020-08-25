@@ -7,6 +7,7 @@
 | F       | Feature (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                        |
 | B       | Bug (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                              |
 | R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
+| M       | Merge commit with changes on only one parent (fast-forward-able) and no `!!` changes       |
 
 ## Lower case: Low risk
 
@@ -18,6 +19,7 @@
 | r       | Provable Refactoring<sup>[2]</sup>                 |
 | c       | Comments (add/delete)                                        |
 | e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
+| m       | Merge commit with changes on only one parent (fast-forward-able) and only lower-case (low risk) changes       |
 
 ## Three characters: The danger zone!
 
