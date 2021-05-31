@@ -72,6 +72,13 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | `B!!` | Change includes unit tests for new behavior. |
 | `B**` | No automatic tests, or unfinished implementation. |
 
+--------
+
+**Additional options exist below here. These are still described in the prior format. They are intended to all merge into the above format. Several will become optional extensions & be referenced in profiles.**
+
+-------
+
+
 ## Upper case: May change behavior
 
 | Prefix  | Meaning                                                   |
