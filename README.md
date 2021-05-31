@@ -1,5 +1,31 @@
 # Arlo's Commit Notation
 
+This commit notation allows developers to convey 2 critical pieces of metadata about each commit:
+
+1. How risky is it? What has the original author done to mitigate risk?
+2. What was the intention? When the original author changed the code, what was s/he attempting to accomplish?
+
+This information is conveyed in the first 3 characters of the commit summary line. That way a receiving developer can quickly scan the commit log in order to determine risk and intent for any incoming change set.
+
+This is particularly useful when:
+
+1. Deciding whether to approve a pull request.
+2. Reading `main` &mdash; just the pull request commit summaries &mdash; to understand the history of changes for a release.
+
+## The Four Risk Levels
+
+| Risk Level | Code | Example | Meaning |
+| --------------- | ---- | ------------ | ------- |
+| **Known safe** | lowercase letter | `r   Extract method Applesauce` | Addresses all known and unknown risks. |
+| **Validated** | uppercase letter | `R   Extract method Applesauce` | Addresses all known risks. |
+| **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Known risks remain unverified. |
+| **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |
+
+* **Known safe:** Developer performed the task in a way that prevents the potential risks, even for situations that developer is not aware of.
+* **Validated:** Developer performed the task in some way that includes validation for all risks the developer thought of. The most common technique is developer-written automated tests.
+* **Risky:** Developer is aware of risks and attempted to mitigate them as much as possible, but there is no formal verification. Commonly this includes a manual change that the developer could not fully verify.
+* **Broken:** Either known to be broken, or developer couldn't even check to see if it works. May not compile. Used when the developer cannot see the results of the work without checking in, or as a savepoint when the developer is about to switch tasks or direction.
+
 ## Upper case: May change behavior
 
 | Prefix  | Meaning                                                   |
