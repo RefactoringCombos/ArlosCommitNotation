@@ -82,10 +82,6 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | R!!     | Non-provable refactoring                                  |
 | ***     | Does not compile intermediate step                        |
 
-# Description
-
-[Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
-
 # Provable Refactorings
 [2]:#provable-refactorings
 
