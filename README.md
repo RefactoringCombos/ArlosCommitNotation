@@ -83,8 +83,6 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F       | Feature (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                        |
-| B       | Bug (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                              |
 | R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
 
 ## Lower case: Low risk
@@ -102,8 +100,6 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
-| B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
 | R!!     | Non-provable refactoring                                  |
 | ***     | Does not compile intermediate step                        |
 
