@@ -15,7 +15,7 @@ This is particularly useful when:
 ## The Four Risk Levels
 
 | Risk Level | Code | Example | Meaning |
-| --------------- | ---- | ------------ | ------- |
+| --- | --- | --- | --- |
 | **Known safe** | lowercase letter | `r   Extract method Applesauce` | Addresses all known and unknown risks. |
 | **Validated** | uppercase letter | `R   Extract method Applesauce` | Addresses all known risks. |
 | **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Known risks remain unverified. |
@@ -25,6 +25,34 @@ This is particularly useful when:
 * **Validated:** Developer performed the task in some way that includes validation for all risks the developer thought of. The most common technique is developer-written automated tests.
 * **Risky:** Developer is aware of risks and attempted to mitigate them as much as possible, but there is no formal verification. Commonly this includes a manual change that the developer could not fully verify.
 * **Broken:** Either known to be broken, or developer couldn't even check to see if it works. May not compile. Used when the developer cannot see the results of the work without checking in, or as a savepoint when the developer is about to switch tasks or direction.
+
+## Core Intentions
+
+These developer intentions exist on every project. They are always allowed in commits that use this notation.
+
+Each intention can appear at any of the 4 risk levels. Each intention's full details section includes the potential risks inherent in that kind of change, as well as common approaches to attain each risk level.
+
+| Prefix | Name | Intention |
+| --- | --- | --- |
+| F | Feature | Change or extend one aspect of program behavior without altering others. |
+| B | Bugfix | Repair one existing, undesirable program behavior without altering any others. |
+| R | Refactoring | Change implementation without changing program behavior. |
+| D | Documentation | Change something which communicates to team members and does not impact program behavior. |
+
+### Feature
+
+**Known Risks**
+
+* May alter unrelated feature (spooky action at a distance).
+* May alter a piece of this feature that you intended to remain unchanged.
+* May implement the intended change in a way different than intended.
+
+| Code | Known Approaches |
+| --- | --- |
+| `f  ` | None known |
+| `F  ` | <ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `F!!` | Change includes unit tests for new behavior. |
+| `F**` | No automatic tests, or unfinished implementation. |
 
 ## Upper case: May change behavior
 
