@@ -1,6 +1,15 @@
 # Arlo's Commit Notation
 
-## Upper case: May change behavior
+## Three characters: Conventional, high risk
+
+| Prefix  | Meaning                                                   |
+| ------- | --------------------------------------------------------- |
+| F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
+| B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
+| R!!     | Non-provable refactoring                                  |
+| ***     | Does not compile intermediate step                        |
+
+## Upper case: Deliberate, moderate risk
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
@@ -8,7 +17,7 @@
 | B       | Bug (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                              |
 | R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
 
-## Lower case: Low risk
+## Lower case: Disciplined, low risk
 
 | Prefix  | Meaning                                                      |
 | ------- | ------------------------------------------------------------ |
@@ -18,15 +27,6 @@
 | r       | Provable Refactoring<sup>[2]</sup>                 |
 | c       | Comments (add/delete)                                        |
 | e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
-
-## Three characters: The danger zone!
-
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
-| B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
-| R!!     | Non-provable refactoring                                  |
-| ***     | Does not compile intermediate step                        |
 
 # Description
 
