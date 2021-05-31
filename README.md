@@ -54,6 +54,24 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
 
+### Bugfix
+
+A bugfix is a lot like a feature. However, the intention is to change an undesired &mdash; and usually unintentional &mdash; behavior of the current system. The risk profile is similar but the intention is different, so there are often more operational risks.
+
+**Known Risks**
+
+* Intended change may have unintended consequences in the market. For example, customers may be depending on the bug.
+* May alter unrelated feature (spooky action at a distance).
+* May alter a piece of this feature that you intended to remain unchanged.
+* May implement the intended change in a way different than intended.
+
+| Code | Known Approaches |
+| --- | --- |
+| `b  ` | None known |
+| `B  ` | <ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `B!!` | Change includes unit tests for new behavior. |
+| `B**` | No automatic tests, or unfinished implementation. |
+
 ## Upper case: May change behavior
 
 | Prefix  | Meaning                                                   |
