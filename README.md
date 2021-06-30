@@ -90,27 +90,22 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 | `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
 | `R**` | Remodeled by editing code, even in small chunks. |
 
---------
+### Documentation
 
-**Additional options exist below here. These are still described in the prior format. They are intended to all merge into the above format. Several will become optional extensions & be referenced in profiles.**
+Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation<sup>[1]</sup>.
 
--------
+**Known Risks**
 
-## Lower case: Low risk
+* May mislead future developers.
+* May mislead other stakeholders.
+* May alter team processes in ways that have unintended consequences.
 
-| Prefix  | Meaning                                                      |
-| ------- | ------------------------------------------------------------ |
-| t       | Test only                                                    |
-| d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
-| a       | Automated formatting / generation                               |
-| c       | Comments (add/delete)                                        |
-| e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
-
-## Three characters: The danger zone!
-
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| ***     | Does not compile intermediate step                        |
+| Code | Known Approaches |
+| --- | --- |
+| `d  ` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
+| `D  ` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. |
+| `D!!` | Alters an important process. |
+| `D**` | Trying out a process change that is intended to gain info, not to work. |
 
 # Provable Refactorings
 [2]:#provable-refactorings
@@ -161,3 +156,24 @@ One good approach to enable small features is to refactor until the feature chan
 # Living Documentation
 
 We invite you to submit pull requests to help evolve this notation and methodology.
+
+--------
+
+**Additional options exist below here. These are still described in the prior format. They are intended to all merge into the above format. Several will become optional extensions & be referenced in profiles.**
+
+-------
+
+## Lower case: Low risk
+
+| Prefix  | Meaning                                                      |
+| ------- | ------------------------------------------------------------ |
+| t       | Test only                                                    |
+| a       | Automated formatting / generation                               |
+| c       | Comments (add/delete)                                        |
+| e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
+
+## Three characters: The danger zone!
+
+| Prefix  | Meaning                                                   |
+| ------- | --------------------------------------------------------- |
+| ***     | Does not compile intermediate step                        |
