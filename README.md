@@ -10,7 +10,7 @@ This information is conveyed in the first 3 characters of the commit summary lin
 This is particularly useful when:
 
 1. Deciding whether to approve a pull request.
-2. Reading `main` &mdash; just the pull request commit summaries &mdash; to understand the history of changes for a release.
+2. Reading `main` &mdash; just the pull request commit summaries to understand the history of changes for a release.
 
 ## The Four Risk Levels
 
@@ -50,7 +50,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | Code | Known Approaches |
 | --- | --- |
 | `f  ` | None known |
-| `F  ` | <ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `F  ` | <ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
 
@@ -68,22 +68,33 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | Code | Known Approaches |
 | --- | --- |
 | `b  ` | None known |
-| `B  ` | <ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `B  ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `B!!` | Change includes unit tests for new behavior. |
 | `B**` | No automatic tests, or unfinished implementation. |
+
+### Refactoring or Remodeling
+
+A Refactoring or Remodeling intends to alter the program in some way without changing any behavior. The risk levels indicate the probability of the commit living up to that intention, based on how the code change was executed.
+
+**Known Risks**
+
+* May cause a bug.
+* May fix a bug.
+* May change a behavior in a way that doesn't impact a user.
+* May force a test update.
+
+| Code | Known Approaches |
+| --- | --- |
+| `r  ` | Provable refactoring<sup>[2]</sup> |
+| `R  ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
+| `R**` | Remodeled by editing code, even in small chunks. |
 
 --------
 
 **Additional options exist below here. These are still described in the prior format. They are intended to all merge into the above format. Several will become optional extensions & be referenced in profiles.**
 
 -------
-
-
-## Upper case: May change behavior
-
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
 
 ## Lower case: Low risk
 
@@ -92,7 +103,6 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | t       | Test only                                                    |
 | d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
 | a       | Automated formatting / generation                               |
-| r       | Provable Refactoring<sup>[2]</sup>                 |
 | c       | Comments (add/delete)                                        |
 | e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
 
@@ -100,7 +110,6 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 | Prefix  | Meaning                                                   |
 | ------- | --------------------------------------------------------- |
-| R!!     | Non-provable refactoring                                  |
 | ***     | Does not compile intermediate step                        |
 
 # Provable Refactorings
@@ -152,5 +161,3 @@ One good approach to enable small features is to refactor until the feature chan
 # Living Documentation
 
 We invite you to submit pull requests to help evolve this notation and methodology.
-
-*[LoC]: lines of code
