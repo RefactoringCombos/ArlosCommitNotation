@@ -85,7 +85,7 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 | Code | Known Approaches |
 | --- | --- |
-| `r  ` | Provable refactoring<sup>[2]</sup> |
+| `r  ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
 | `R  ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
 | `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
 | `R**` | Remodeled by editing code, even in small chunks. |
@@ -116,7 +116,7 @@ These are some common intentions, each used in several projects. Each also lists
 | Prefix | Name | Intention | Alternatives |
 | --- | --- | --- | --- |
 | M | Merge | Merge branches | Use `F`, `B`, or `R`, based on the main intention of the branch, with risk level based on maximum for any individual commit in the branch. Optionally leave blank for merge from main to a feature branch. |
-| T | Test-only | Alter automated tests without altering functionality. May include code-generating code that just throws a `NotImplementedException` or similar approaches. | Use `f` or `b`, depending on which kind of work this test is going to validate. It is a lower-case letter unless you also change product code. |
+| T | Test-only | Alter automated tests without altering functionality. May include code-generating code that just throws a `NotImplementedException` or similar approaches. | Use `f` or `b`, depending on which kind of work this test is going to validate. Use `r` if this is a refactoring purely within test code. It is a lower-case letter unless you also change product code. |
 | E | Environment | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) | Consider the environment to be a product where the users are team members, and code it accordingly. |
 | A | Auto | Automatic formatting, code generation, or similar tasks. | Use the intention that matches the reason you are performing the action, almost-certainly as a lower-case level of risk. For example, code cleanup would be `r`, and generating code to make a test for a new feature compile would be `t` or `f`. |
 | C | Comment | Changes comments only. Does not include comments that are visible to doc-generation tools. | Use `D`. |
