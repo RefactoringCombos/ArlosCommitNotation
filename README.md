@@ -50,7 +50,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | Code | Known Approaches |
 | --- | --- |
 | `f  ` | None known |
-| `F  ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">[LoC][LoC]</abbr></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `F  ` | Meets all of:<ul><li>Change is <= 8 [LoC]</li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
 
@@ -68,7 +68,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | Code | Known Approaches |
 | --- | --- |
 | `b  ` | None known |
-| `B  ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">[LoC][LoC]</abbr></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `B  ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 [LoC]</li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `B!!` | Change includes unit tests for new behavior. |
 | `B**` | No automatic tests, or unfinished implementation. |
 
@@ -174,4 +174,5 @@ One good approach to enable small features is to refactor until the feature chan
 
 We invite you to submit pull requests to help evolve this notation and methodology.
 
-[LoC]: Lines of Code
+*LoC: Lines of Code
+[LoC]:#lines-of-code
