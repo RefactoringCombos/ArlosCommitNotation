@@ -1,36 +1,128 @@
 # Arlo's Commit Notation
 
-## Upper case: May change behavior
+This commit notation allows developers to convey 2 critical pieces of metadata about each commit:
 
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| F       | Feature (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                        |
-| B       | Bug (<= 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                              |
-| R       | Test-supported Procedural Refactoring<sup>[3]</sup>                      |
+1. How risky is it? What has the original author done to mitigate risk?
+2. What was the intention? When the original author changed the code, what was s/he attempting to accomplish?
 
-## Lower case: Low risk
+This information is conveyed in the first 3 characters of the commit summary line. That way a receiving developer can quickly scan the commit log in order to determine risk and intent for any incoming change set.
 
-| Prefix  | Meaning                                                      |
-| ------- | ------------------------------------------------------------ |
-| t       | Test only                                                    |
-| d       | Developer documentation changes (not end-user facing<sup>[1]</sup>)        |
-| a       | Automated formatting / generation                               |
-| r       | Provable Refactoring<sup>[2]</sup>                 |
-| c       | Comments (add/delete)                                        |
-| e       | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) |
+This is particularly useful when:
 
-## Three characters: The danger zone!
+1. Deciding whether to approve a pull request.
+2. Reading `main` &mdash; just the pull request commit summaries to understand the history of changes for a release.
 
-| Prefix  | Meaning                                                   |
-| ------- | --------------------------------------------------------- |
-| F!!     | Feature (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                             |
-| B!!     | Bug (> 8 <abbr title="lines of code">LoC</abbr><sup>[4]</sup>)                                   |
-| R!!     | Non-provable refactoring                                  |
-| ***     | Does not compile intermediate step                        |
+## The Four Risk Levels
 
-# Description
+| Risk Level | Code | Example | Meaning |
+| --- | --- | --- | --- |
+| **Known safe** | lowercase letter | `r   Extract method Applesauce` | Addresses all known and unknown risks. |
+| **Validated** | uppercase letter | `R   Extract method Applesauce` | Addresses all known risks. |
+| **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Known risks remain unverified. |
+| **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |
 
-[Arlo's](https://twitter.com/arlobelshee) Commit Notation is a way of making small commits that show the risk involved in each step. It is particulary useful in legacy systems. 
+* **Known safe:** Developer performed the task in a way that prevents the potential risks, even for situations that developer is not aware of.
+* **Validated:** Developer performed the task in some way that includes validation for all risks the developer thought of. The most common technique is developer-written automated tests.
+* **Risky:** Developer is aware of risks and attempted to mitigate them as much as possible, but there is no formal verification. Commonly this includes a manual change that the developer could not fully verify.
+* **Broken:** Either known to be broken, or developer couldn't even check to see if it works. May not compile. Used when the developer cannot see the results of the work without checking in, or as a savepoint when the developer is about to switch tasks or direction.
+
+## Core Intentions
+
+These developer intentions exist on every project. They are always allowed in commits that use this notation.
+
+Each intention can appear at any of the 4 risk levels. Each intention's full details section includes the potential risks inherent in that kind of change, as well as common approaches to attain each risk level.
+
+| Prefix | Name | Intention |
+| --- | --- | --- |
+| F | Feature | Change or extend one aspect of program behavior without altering others. |
+| B | Bugfix | Repair one existing, undesirable program behavior without altering any others. |
+| R | Refactoring | Change implementation without changing program behavior. |
+| D | Documentation | Change something which communicates to team members and does not impact program behavior. |
+
+### Feature
+
+**Known Risks**
+
+* May alter unrelated feature (spooky action at a distance).
+* May alter a piece of this feature that you intended to remain unchanged.
+* May implement the intended change in a way different than intended.
+
+| Code | Known Approaches |
+| --- | --- |
+| `f  ` | None known |
+| `F  ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `F!!` | Change includes unit tests for new behavior. |
+| `F**` | No automatic tests, or unfinished implementation. |
+
+### Bugfix
+
+A bugfix is a lot like a feature. However, the intention is to change an undesired &mdash; and usually unintentional &mdash; behavior of the current system. The risk profile is similar but the intention is different, so there are often more operational risks.
+
+**Known Risks**
+
+* Intended change may have unintended consequences in the market. For example, customers may be depending on the bug.
+* May alter unrelated feature (spooky action at a distance).
+* May alter a piece of this feature that you intended to remain unchanged.
+* May implement the intended change in a way different than intended.
+
+| Code | Known Approaches |
+| --- | --- |
+| `b  ` | None known |
+| `B  ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `B!!` | Change includes unit tests for new behavior. |
+| `B**` | No automatic tests, or unfinished implementation. |
+
+### Refactoring or Remodeling
+
+A Refactoring or Remodeling intends to alter the program in some way without changing any behavior. The risk levels indicate the probability of the commit living up to that intention, based on how the code change was executed.
+
+**Known Risks**
+
+* May cause a bug.
+* May fix a bug.
+* May change a behavior in a way that doesn't impact a user.
+* May force a test update.
+
+| Code | Known Approaches |
+| --- | --- |
+| `r  ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
+| `R  ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
+| `R**` | Remodeled by editing code, even in small chunks. |
+
+### Documentation
+
+Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation<sup>[1]</sup>.
+
+**Known Risks**
+
+* May mislead future developers.
+* May mislead other stakeholders.
+* May alter team processes in ways that have unintended consequences.
+
+| Code | Known Approaches |
+| --- | --- |
+| `d  ` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
+| `D  ` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. |
+| `D!!` | Alters an important process. |
+| `D**` | Trying out a process change that is intended to gain info, not to work. |
+
+## Extension Intentions
+
+Each project can define a set of extension intentions. Each project should define which extension codes it uses. It is up to each project to define the approaches for each of the 4 risk levels.
+
+These are some common intentions, each used in several projects. Each also lists alternatives used in projects that don't use the code.
+
+| Prefix | Name | Intention | Alternatives |
+| --- | --- | --- | --- |
+| M | Merge | Merge branches | Use `F`, `B`, or `R`, based on the main intention of the branch, with risk level based on maximum for any individual commit in the branch. Optionally leave blank for merge from main to a feature branch. |
+| T | Test-only | Alter automated tests without altering functionality. May include code-generating code that just throws a `NotImplementedException` or similar approaches. | Use `f` or `b`, depending on which kind of work this test is going to validate. Use `r` if this is a refactoring purely within test code. It is a lower-case letter unless you also change product code. |
+| E | Environment | Environment (non-code) changes that affect development setup, and other tooling changes that don't affect program behavior (e.g. linting) | Consider the environment to be a product where the users are team members, and code it accordingly. |
+| A | Auto | Automatic formatting, code generation, or similar tasks. | Use the intention that matches the reason you are performing the action, almost-certainly as a lower-case level of risk. For example, code cleanup would be `r`, and generating code to make a test for a new feature compile would be `t` or `f`. |
+| C | Comment | Changes comments only. Does not include comments that are visible to doc-generation tools. | Use `D`. |
+| P | Process | Changes some team process or working agreement. | Any of: <ul><li>Use a tacit, informal process.</li><li>Use `D`.</li><li>Keep your process definition outside of source control.</li></ul> |
+| S | Spec | Changes the spec or design. Used when team does formal specs or design reviews and keeps all such documents in the main product source, perhaps in the product code itself. | Any of: <ul><li>Use informal specs.</li><li>Use `D`.</li><li>Use your test suite as your only spec.</li><li>Keep your spec / design outside of source control.</li></ul> |
+| * | Unknown / multiple | Made a bunch of changes and are just getting it checked in. No real way to validate safety, and may not even compile. Usually used at the highest risk level (`***`). | Don't allow this. Require each commit to do exactly one intention and document itself accordingly. |
 
 # Provable Refactorings
 [2]:#provable-refactorings
@@ -82,4 +174,6 @@ One good approach to enable small features is to refactor until the feature chan
 
 We invite you to submit pull requests to help evolve this notation and methodology.
 
-*[LoC]: lines of code
+<a id="lines-of-code">LoC: Lines of Code</a>
+
+[5]:#lines-of-code
