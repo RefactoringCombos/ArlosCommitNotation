@@ -9,8 +9,9 @@ This information is conveyed in the first 3 characters of the commit summary lin
 
 This is particularly useful when:
 
-1. Deciding whether to approve a pull request.
-2. Reading `main` &mdash; just the pull request commit summaries to understand the history of changes for a release.
+1. As a reviewer, deciding whether to approve a pull request
+2. As a developer, getting your pull request approved faster and more easily
+4. Reading `main` &mdash; just the pull request commit summaries to understand the history of changes for a release.
 
 ## The Four Risk Levels
 
