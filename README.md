@@ -110,7 +110,7 @@ Changes that don't impact the code, but do change documentation around the code.
 
 ## Extension Intentions
 
-The basic intention annotations are comprehensive to describe any kind of change, but it may be useful to extend the notation to your project to provide additional detail that is useful in your context. Read more about [Extension Intensions](Extension Intentions.md).
+The basic intention annotations are comprehensive to describe any kind of change, but it may be useful to extend the notation to your project to provide additional detail that is useful in your context. Read more about [Extension Intensions](Extension%20Intentions.md).
 
 # Provable Refactorings
 [2]:#provable-refactorings
