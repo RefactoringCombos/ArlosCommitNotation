@@ -1,18 +1,18 @@
-# Incremental learning and adoption paths
+# Incremental learning and adoption path
 
-For a team that has never tried disciplined refactoring there is a steep learning curve to adopt this notation.
+For a team that has never tried disciplined refactoring there is a steep learning curve to adopt this system.
 
 To reduce that challenge, here we describe the tiniest increments to learning and adopting Arlo's Commit Notation. This way you can get used to one idea before getting overwhelmed by the next idea, and get a quicker return on the learning investment.
 
 Expect some disagreement and confusion in the team throughout this process, as people shift their thinking. As you find agreement, write down your new norms in your team agreements. Give feedback to Arlo's Commit Notation about how it could be been clearer for you.
 
-Hint: this all goes much more smoothly with Mob/Ensemble Programming ([Promiscuious Pairing](https://csis.pace.edu/~grossman/dcs/XR4-PromiscuousPairing.pdf) is also pretty good) to share knowledge, increase "insights per hour", and shift norms quickly.
+Hint: this all goes much more smoothly with Mob/Ensemble Programming ([Promiscuious Pairing](https://csis.pace.edu/~grossman/dcs/XR4-PromiscuousPairing.pdf) is also pretty good) to share knowledge, increase "insights per hour", and shift norms more quickly.
 
-Hint: a good technical coach can be a huge help your team learn and adopt these skills.
+Hint: a good technical coach can be a huge help for your team to learn and adopt these skills.
 
 # Working in a short-lived branch
 
-While Trunk-Based Development directly in `main` is good for keeping everyone's work in sync and reducing merges, a short-lived branch lets you document the steps in your development process, telling a story to reviewers and future readers of your changes. 1 day is a good maximum lifetime for a branch, enabling incremental commits without incurring most of the risks of long-lived branches.
+While Trunk-Based Development directly in `main` is good for keeping everyone's work in sync and reducing merges, a short-lived branch lets you document the steps in your development process, telling a story to reviewers and future readers of your changes. 1 day is a good maximum lifetime for a branch (shorter is better), enabling incremental commits without incurring most of the risks of long-lived branches.
 
 If you're in a context where code review is part of the flow of work, teach reviewers how to look at the individual branch commits as an option that may be easier than viewing the whole change all at once. Mention this option in the description of the final Merge Request, e.g. "see the individual commits in the branch for more details".
 
@@ -25,7 +25,9 @@ Implement automatic log-off
 Clean up the login module
 ```
 
-One benefit of working this way is that it's easier to provide rich, detailed descriptions for the smaller increments in a branch than for the whole arc of changes. In legacy code, we often see code that looks "weird" but we don't know if was deliberately made this way for a subtle reason, or the dev just didn't get around to cleaning it up. Incremental work with rich descriptions can be really helpful for future readers trying to understand why the code ended up like this. 
+One benefit of working this way is that it's easier to provide rich, detailed descriptions for the smaller increments in a branch than for the whole ball of changes.
+
+In legacy code, we often see code that looks "weird" but we don't know if was deliberately made this way for a subtle reason, or the dev just didn't get around to cleaning it up. Incremental work with rich descriptions can be really helpful for future readers trying to understand why the code ended up like this. 
 
 # Tag refactorings with `R**`
 
@@ -35,7 +37,7 @@ The refactoring need not be especially disciplined. This is just about separatin
 
 Folks on your team probably have [multiple working defintions of refactoring](https://jay.bazuzi.com/DefinitionsOfRefactoring/), and this is an invitation to examine those defintions and find a shared understanding.
 
-Refactorings often have a large diff even though they don't change behavior. If combined with deliberate behavior changes that will make reading the total diff difficult. Separating refactorings into their own commits will make code review easier. You should be able to scan the commit history and easily see which are refactorings and which are not.
+Refactorings often have a large diff even though they don't change behavior and are out of proportion with the conceptual size of the change. For example "rename A to B" is one small idea but every line that references `A` will be affected. If combined with deliberate behavior changes that will make reading the total diff difficult. Separating refactorings into their own commits will make code review easier. You should be able to scan the commit history and easily see which are refactorings and which are not.
 
 ## Example commit history
 
@@ -125,14 +127,14 @@ Once you get in familiar with refactoring in preparation for a feature, you can 
 
 ```
 F   Automatically log-off when idle
-r   <more refactorings>
+r   <more refactoring>
 t   <fill in a missing test>
-r   <more refactorings>
-r   <more refactorings>
+r   <more refactoring>
+r   <more refactoring>
 R!! <a refactoring we couldn't make safe>
-r   <more refactorings>
+r   <more refactoring>
 t   <fill in a missing test>
-r   <more refactorings>
+r   <more refactoring>
 R!! <a refactoring we couldn't make safe>
 r   Merge duplicate code
 r   Extract Method
