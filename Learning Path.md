@@ -162,3 +162,32 @@ F   FizzBuzz of 2 is "2"
 r   rename parameter
 F   FizzBuzz of 1 is "1"
 ```
+
+# Alternatives
+
+## All-at-once
+
+If working as an ensemble with a highly skilled and capable technical coach, then bring in all of the practices at once and let the coach guide the team to use them as the work requires.
+
+## Categorize first
+
+This approach scales up to larger multi-team organizations where there's not enough hands-on coaching capacity to do it all at once.
+
+Make the requirement that all changes must be categorized in to one of Feature (`F**`), Bug Fix (`B**`), or Refactoring (`R**`) and tagged as such. No other change to developer behavior is required. `***` is an escape valve, e.g. for checkpointing work to move it to another machine.
+
+If a change contains both feature and bug fix work, use `F**`.
+
+If a change contains both refactoring and non-refactoring work, use the appropriate non-refactoring tag.
+
+Invite developers/pairs/ensembles to use other risk and intent annotations as they see fit, and praise when that is done, but don't require it at first.
+
+Roll out in these increments:
+
+1. Categorize (`F**` / `B**` / `R**` / `***`)
+2. Corral Risk (`F!!`, `B!!` / `R!!`)
+3. Validated (`F` / `B` / `R`)
+4. Safe (`f` / `b` / `r`)
+
+## Safety First
+
+Start by introducing `r` an suggesting incremental work in a branch. Allow these kinds of changes a fast track through review and release. Build from there.
