@@ -10,7 +10,7 @@ Hint: this all goes much more smoothly with Mob/Ensemble Programming ([Promiscui
 
 Hint: a good technical coach can be a huge help for your team to learn and adopt these skills.
 
-# Working in a short-lived branch
+## 1. Working in a short-lived branch
 
 While Trunk-Based Development directly in `main` is good for keeping everyone's work in sync and reducing merges, a short-lived branch lets you document the steps in your development process, telling a story to reviewers and future readers of your changes. 1 day is a good maximum lifetime for a branch (shorter is better), enabling incremental commits without incurring most of the risks of long-lived branches.
 
@@ -18,7 +18,7 @@ If you're in a context where code review is part of the flow of work, teach revi
 
 Depending on your VCS solution, you will need to find a way to keep these details visible after merging to main, such as `rebase` + `merge --no-ff`.
 
-## Example commit history
+### Example commit history
 
 ```
 Implement automatic log-off
@@ -29,7 +29,7 @@ One benefit of working this way is that it's easier to provide rich, detailed de
 
 In legacy code, we often see code that looks "weird" but we don't know if was deliberately made this way for a subtle reason, or the dev just didn't get around to cleaning it up. Incremental work with rich descriptions can be really helpful for future readers trying to understand why the code ended up like this. 
 
-# Tag refactorings with `R**`
+## 2. Tag refactorings with `R**`
 
 If a change contains only refactoring, indicate that by prefixing the change description with `R** `.
 
@@ -39,7 +39,7 @@ Folks on your team probably have [multiple working defintions of refactoring](ht
 
 Refactorings often have a large diff even though they don't change behavior and are out of proportion with the conceptual size of the change. For example "rename A to B" is one small idea but every line that references `A` will be affected. If combined with deliberate behavior changes that will make reading the total diff difficult. Separating refactorings into their own commits will make code review easier. You should be able to scan the commit history and easily see which are refactorings and which are not.
 
-## Example commit history
+### Example commit history
 
 ```
 Implement automatic log-off
@@ -49,7 +49,7 @@ R** Rename a bunch of stuff for clarity
 
 For a future reader of the code trying to understand how the code got this way, if you're looking for a deliberate behavior change you know you can ignore `R**` changes; if you see a behavior change in a commit marked `R**` you know it was accidental.
 
-# Pick up easy wins
+## 3. Pick up easy wins
 
 Once the team has learned the above practices, the following tags are easy to adopt.
 
@@ -57,7 +57,7 @@ Once the team has learned the above practices, the following tags are easy to ad
 - `a` for auto-formatting
 - `R!!` for named refactorings
 
-## Example commit history
+### Example commit history
 
 ```
 t   fill in missing tests for existing login code
@@ -67,7 +67,7 @@ a   autoformat with prettier
 
 If you haven't already, this is a good time to add automatic code formatting to your CI checks, and bring all existing code in to compliance with that formatting.
 
-# Tag Features and Bug Fixes with `F**` and `B**`.
+## 4. Tag Features and Bug Fixes with `F**` and `B**`.
 
 Make a team agreement to categorize commits and tag with one of the above.
 
@@ -75,7 +75,7 @@ It may be a good idea to allow `***` (uncategorized) in certain contexts. One ex
 
 At this point you can considering adopting a regex check to ensure that all commits are tagged. See https://github.com/RefactoringCombos/ArlosCommitNotation/issues/29.
 
-## Example commit history
+### Example commit history
 
 ```
 F** Implement automatic log-off
@@ -83,13 +83,13 @@ R** Remove duplication in login module
 R** Rename a bunch of stuff for clarity
 ```
 
-# Refactor to prepare code for behavior change
+## 5. Refactor to prepare code for behavior change
 
 > Make the change easy (warning: this may be hard), then make the easy change. -- Kent Beck
 
 For each feature or bug fix, practice replacing "how can I get this behavior change to fit in to the current design?" with "what design would make it really easy to implement this feature in a natural way?" and "what small refactorings would it take to get from here to there?". You're looking for `R!!`-style, single named refactorings. Commit histories will start to look like a series of refactorings followed by a deliberate behavior change.
 
-## Example commit history
+### Example commit history
 
 ```
 F** Automatically log-off when idle
@@ -101,7 +101,7 @@ R!! Extract Method
 
 This also gives you the option of merging to `main` before your feature or bug fix is complete. For example, on one day you might do a bunch of `R!!` refactorings, get them approved and merged quickly thanks to the above practices, then continue towards your feature or bug fix the next day.
 
-# Safe Refactoring
+## 6. Safe Refactoring
 
 Can your IDE safely execute a refactoring? If so, you can use `r`. This is great for code review, as reviewers can now skim some changes instead of examining them carefully for correctness issues. This means means you can get your code review results back even more quickly.
 
@@ -111,7 +111,7 @@ Once your team has gotten comfortable with `r`, consider changing your code revi
 
 Note that this level of safety is hard to get in dynamic languages. If that's your context, you may need to instead make the investment in comprehensive test coverage to unlock `R`.
 
-## Example commit history
+### Example commit history
 
 ```
 r   Merge identical methods
@@ -119,11 +119,11 @@ r   Rename local variables
 r   Extract Method
 ```
 
-# Small features and bug fixes
+## 7. Small features and bug fixes
 
 Once you get in familiar with refactoring in preparation for a feature, you can further reduce risk by refactoring to the point where a feature or bug fix only requires a small code change. That unlocks `F` and `B`.
 
-## Example commit history
+### Example commit history
 
 ```
 F   Automatically log-off when idle
@@ -153,7 +153,7 @@ In a strict Test-Driven Development cycle almost all commits are either a new te
     - If this is new, un-called code and you have been doing TDD since the start, you probably have the test coverage to use `R`.
     - If you are "triangulating", converting special-case code to a generalized algorithm, use may need to use `R**`.
 
-## Example commit history
+### Example commit history
 
 ```
 R   replace algorithm
