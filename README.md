@@ -134,7 +134,7 @@ These are refactorings with a lower standard of proof:
 3. Either:
     a) Your entire product is very highly tested, or
     b) you are working on new code that is not yet called.
-4. You followed the published recipe, including running full-suite test runs when indicated.
+4. You followed the published steps, including running full-suite test runs when indicated.
 
 Note that this can not prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
