@@ -132,8 +132,8 @@ These are refactorings with a lower standard of proof:
 1. Commit contains only a single refactoring.
 2. Refactoring is named and published (e.g., in [Fowler's refactoring catalog](https://refactoring.com/catalog/)).
 3. Either:
-    a) Your entire product is very highly tested, or
-    b) you are working on new code that is not yet called.
+    1. Your entire product is very highly tested, or
+    2. you are working on new code that is not yet called.
 4. You followed the published steps, including running full-suite test runs when indicated.
 
 Note that this can not prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
