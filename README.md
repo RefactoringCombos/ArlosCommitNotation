@@ -17,8 +17,8 @@ This is particularly useful when:
 
 | Risk Level | Code | Example | Meaning |
 | --- | --- | --- | --- |
-| **Known safe** | lowercase letter | `r   Extract method Applesauce` | Addresses all known and unknown risks. |
-| **Validated** | uppercase letter | `R   Extract method Applesauce` | Addresses all known risks. |
+| **Known safe** | lowercase letter | `r - Extract method Applesauce` | Addresses all known and unknown risks. |
+| **Validated** | uppercase letter | `R - Extract method Applesauce` | Addresses all known risks. |
 | **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Known risks remain unverified. |
 | **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |
 
@@ -50,8 +50,8 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 
 | Code | Known Approaches |
 | --- | --- |
-| `f  ` | None known |
-| `F  ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `f - ` | None known |
+| `F - ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
 
@@ -68,8 +68,8 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 | Code | Known Approaches |
 | --- | --- |
-| `b  ` | None known |
-| `B  ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `b - ` | None known |
+| `B - ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `B!!` | Change includes unit tests for new behavior. |
 | `B**` | No automatic tests, or unfinished implementation. |
 
@@ -86,8 +86,8 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 | Code | Known Approaches |
 | --- | --- |
-| `r  ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `R  ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `r - ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
+| `R - ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
 | `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
 | `R**` | Remodeled by editing code, even in small chunks. |
 
@@ -103,8 +103,8 @@ Changes that don't impact the code, but do change documentation around the code.
 
 | Code | Known Approaches |
 | --- | --- |
-| `d  ` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
-| `D  ` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. |
+| `d - ` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
+| `D - ` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. |
 | `D!!` | Alters an important process. |
 | `D**` | Trying out a process change that is intended to gain info, not to work. |
 
