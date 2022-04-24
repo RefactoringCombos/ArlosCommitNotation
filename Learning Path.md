@@ -58,9 +58,9 @@ Once the team has learned the above practices, the following tags are easy to ad
 ## Example commit history
 
 ```
-t   fill in missing tests for existing login code
+t - fill in missing tests for existing login code
 R!! Extract Method
-a   autoformat with prettier
+a - autoformat with prettier
 ```
 
 If you haven't already, this is a good time to add automatic code formatting to your CI checks, and bring all existing code in to compliance with that formatting.
@@ -112,9 +112,9 @@ Note that this level of safety is hard to get in dynamic languages. If that's yo
 ## Example commit history
 
 ```
-r   Merge identical methods
-r   Rename local variables
-r   Extract Method
+r - Merge identical methods
+r - Rename local variables
+r - Extract Method
 ```
 
 # Small features and bug fixes
@@ -124,18 +124,18 @@ Once you get in familiar with refactoring in preparation for a feature, you can 
 ## Example commit history
 
 ```
-F   Automatically log-off when idle
-r   <more refactorings>
-t   <fill in a missing test>
-r   <more refactorings>
-r   <more refactorings>
+F - Automatically log-off when idle
+r - <more refactorings>
+t - <fill in a missing test>
+r - <more refactorings>
+r - <more refactorings>
 R!! <a refactoring we couldn't make safe>
-r   <more refactorings>
-t   <fill in a missing test>
-r   <more refactorings>
+r - <more refactorings>
+t - <fill in a missing test>
+r - <more refactorings>
 R!! <a refactoring we couldn't make safe>
-r   Merge duplicate code
-r   Extract Method
+r - Merge duplicate code
+r - Extract Method
 ```
 
 # TDD with ACN
@@ -144,7 +144,7 @@ In a strict Test-Driven Development cycle almost all commits are either a new te
 
 1. Write a new failing test (Red)
 1. Make it pass (Green)
-1. Commit with `F   <name of the new test>`.
+1. Commit with `F - <name of the new test>`.
 1. Refactor.
 1. Commit each refactoring.
     - If the refactoring is exected with a known safe tool or recipe, use `r`.
@@ -154,9 +154,9 @@ In a strict Test-Driven Development cycle almost all commits are either a new te
 ## Example commit history
 
 ```
-R   replace algorithm
-F   FizzBuzz of 3 is "Fizz"
-F   FizzBuzz of 2 is "2"
-r   rename parameter
-F   FizzBuzz of 1 is "1"
+R - replace algorithm
+F - FizzBuzz of 3 is "Fizz"
+F - FizzBuzz of 2 is "2"
+r - rename parameter
+F - FizzBuzz of 1 is "1"
 ```
