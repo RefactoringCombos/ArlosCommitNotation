@@ -13,4 +13,5 @@ These are some common intentions, each used in several projects. Each also lists
 | C | Comment | Changes comments only. Does not include comments that are visible to doc-generation tools. | Use `D`. |
 | P | Process | Changes some team process or working agreement. | Any of: <ul><li>Use a tacit, informal process.</li><li>Use `D`.</li><li>Keep your process definition outside of source control.</li></ul> |
 | S | Spec | Changes the spec or design. Used when team does formal specs or design reviews and keeps all such documents in the main product source, perhaps in the product code itself. | Any of: <ul><li>Use informal specs.</li><li>Use `D`.</li><li>Use your test suite as your only spec.</li><li>Keep your spec / design outside of source control.</li></ul> |
+| n | NOP | A commit with no changes (`--allow-empty`) | `r` |
 | * | Unknown / multiple | Made a bunch of changes and are just getting it checked in. No real way to validate safety, and may not even compile. Usually used at the highest risk level (`***`). | Don't allow this. Require each commit to do exactly one intention and document itself accordingly. |
