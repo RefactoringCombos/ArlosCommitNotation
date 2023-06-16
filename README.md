@@ -51,7 +51,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | Code | Known Approaches |
 | --- | --- |
 | `f - ` | None known |
-| `F - ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `F - ` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr>[^5]</li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `F!!` | Change includes unit tests for new behavior. |
 | `F**` | No automatic tests, or unfinished implementation. |
 
@@ -69,7 +69,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | Code | Known Approaches |
 | --- | --- |
 | `b - ` | None known |
-| `B - ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `B - ` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr>[^5]</li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `B!!` | Change includes unit tests for new behavior. |
 | `B**` | No automatic tests, or unfinished implementation. |
 
@@ -86,14 +86,14 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 | Code | Known Approaches |
 | --- | --- |
-| `r - ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `R - ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `r - ` | One of: <ul><li>Provable refactoring[^2]</li><li>Test-supported Procedural Refactoring[^3] entirely within test code</li></ul> |
+| `R - ` | Test-supported Procedural Refactoring[^3] |
 | `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
 | `R**` | Remodeled by editing code, even in small chunks. |
 
 ### Documentation
 
-Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation<sup>[1]</sup>.
+Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation[^1].
 
 **Known Risks**
 
@@ -113,7 +113,7 @@ Changes that don't impact the code, but do change documentation around the code.
 The basic intention annotations are comprehensive to describe any kind of change, but it may be useful to extend the notation to your project to provide additional detail that is useful in your context. Read more about [Extension Intensions](Extension%20Intentions.md).
 
 # Provable Refactorings
-[2]:#provable-refactorings
+[^2]:#provable-refactorings
 
 If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
 
@@ -126,7 +126,7 @@ With discipline these can prove bug-for-bug compatibility. They demonstrate safe
 All of these recipes use static analysis to demonstrate safety. As such, they work equally well on code that lacks tests. They can be a good way to make code testable. Their downside is that they are language-specific.
 
 # Test-supported Procedural Refactorings
-[3]:#test-supported-procedural-refactorings
+[^3]:#test-supported-procedural-refactorings
 
 These are refactorings with a lower standard of proof:
 1. Commit contains only a single refactoring.
@@ -141,12 +141,12 @@ Note that this can not prove bug-for-bug compatibility. It can only demonstrate 
 Requirement 3 is there because many refactorings can have non-local effects. It is not sufficient to have great tests on the code you are changing. You also need great tests on the code that you are not intending to change, to demonstrate that you didn't. Therefore, until your entire codebase is very highly tested, you will only be able to use the `R` commit designation on new code that is uncalled by your product.
 
 # End-User Documentation
-[1]:#end-user-documentation
+[^1]:#end-user-documentation
 
 End user documentation is a feature, bugfix, or refactoring, depending on its nature. Use those codes (including levels of risk) accordingly.
 
 # Small Features and Bug Fixes
-[4]:#small-features-and-bug-fixes
+[^4]:#small-features-and-bug-fixes
 
 Features and bug fixes intentionally change behavior. This makes them much riskier than refactorings. It is not possible to prove that they have only the intended effect. However, small changes are much lower risk for three reasons:
 
