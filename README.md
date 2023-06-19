@@ -19,7 +19,7 @@ This is particularly useful when:
 | --- | --- | --- | --- |
 | **Known safe** | lowercase letter | `r - Extract method Applesauce` | Addresses all known and unknown risks. |
 | **Validated** | uppercase letter | `R - Extract method Applesauce` | Addresses all known risks. |
-| **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Known risks remain unverified. |
+| **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Some known risks remain unverified. |
 | **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |
 
 * **Known safe:** Developer performed the task in a way that prevents the potential risks, even for situations that developer is not aware of.
