@@ -50,7 +50,9 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | R | Refactoring | Change implementation without changing program behavior. |
 | D | Documentation | Change something which communicates to team members and does not impact program behavior. |
 
-### Feature
+### Feature or Functionality
+
+**Intended Change:** 1 behavior. Could be described by a single unit test assertion.
 
 **Known Risks**
 
@@ -68,6 +70,8 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 ### Bugfix
 
 A bugfix is a lot like a feature. However, the intention is to change an undesired &mdash; and usually unintentional &mdash; behavior of the current system. The risk profile is similar but the intention is different, so there are often more operational risks.
+
+**Intended Change:** 1 behavior. Could be described by a single unit test assertion.
 
 **Known Risks**
 
@@ -87,6 +91,8 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 A Refactoring or Remodeling intends to alter the program in some way without changing any behavior. The risk levels indicate the probability of the commit living up to that intention, based on how the code change was executed.
 
+**Intended Change:** 0 behaviors.
+
 **Known Risks**
 
 * May cause a bug.
@@ -102,6 +108,8 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 | `R**` | Remodeled by editing code, even in small chunks. |
 
 ### Documentation
+
+**Intended Change:** 0 behaviors.
 
 Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation<sup>[1]</sup>.
 
