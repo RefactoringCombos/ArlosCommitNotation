@@ -119,12 +119,12 @@ Changes that don't impact the code, but do change documentation around the code.
 * May mislead other stakeholders.
 * May alter team processes in ways that have unintended consequences.
 
-| Code | Known Approaches |
-| --- | --- |
-| `. D` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
-| `- D` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. Alternatively, documentation changes in a source file that are verified by running tests. |
-| `! D` | Alters an important process. Alternatively, documentation changes in a source file that verified only by compiling and launching the application. |
-| `@ D` | Trying out a process change that is intended to gain info, not to necessarily work. Alternatively, documentation changes in a source file that are not verified. |
+| Code | Known Approaches in source files | Known Approaches in other files |
+| --- | --- | -- |
+| `. D` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process |
+| `- D` | Verified by running tests, or things like changing text on a dev-only screen. | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
+| `! D` | Verified only by compiling and launching the application. | Alters an important process. |
+| `@ D` | Not verified. | Trying out a process change that is intended to gain info, not to necessarily work. |
 
 ## Extension Intentions
 
