@@ -15,6 +15,8 @@ This is particularly useful when:
 
 ## The Four Risk Levels
 
+We divide all behaviors of the system into 3 sets. The change is intended to alter the *Intended Change* while not altering any of the *Invariants*. The *Risk Levels* are based on correctness guarantees: which invariants can this commit guarantee did not change, and can this commit guarantee that it changed the intended change in the way the authors intended?
+
 | Risk Level | Code | Example | Meaning | Correctness Guarantees |
 | --- | --- | --- | --- | --- |
 | **Known safe** | lowercase letter | `r - Extract method Applesauce` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
@@ -22,9 +24,14 @@ This is particularly useful when:
 | **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Some known risks remain unverified. | Intended Change |
 | **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |  |
 
+Behavior categories:
+
 * **Intended Change:** The 0 or 1 behavior change intended in the commit. Could be verified by one test assertion. By default, a commit with more than 1 behavior change cannot be represented at any risk level below *Probably Broken*.
 * **Known Invariants:** All behaviors known to the development team at the time the change was made. Automated tests can greatly increse the size of this set, thus enhancing safety when commits are at a risk level that guarantees correctness for Known Invariants. However, this set also includes behaviors that are known but not tested.
 * **Unknown Invariants:** All behaviors not known to the development team at the time the change was made. These behaviors are guaranteed to be untested and untestable, as the development team does not know they exist.
+
+Risk levels:
+
 * **Known safe:** Developer performed the task in a way that prevents the potential risks, even for situations that developer is not aware of.
 * **Validated:** Developer performed the task in some way that includes validation for all risks the developer thought of. The most common technique is developer-written automated tests.
 * **Risky:** Developer is aware of risks and attempted to mitigate them as much as possible, but there is no formal verification. Commonly this includes a manual change that the developer could not fully verify.
