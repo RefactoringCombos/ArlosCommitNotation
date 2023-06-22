@@ -121,10 +121,10 @@ Changes that don't impact the code, but do change documentation around the code.
 
 | Code | Known Approaches |
 | --- | --- |
-| `d - ` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
-| `D - ` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. |
-| `D!!` | Alters an important process. |
-| `D**` | Trying out a process change that is intended to gain info, not to work. |
+| `. D` | Developer-visible documentation, not in a source file, or verified to generate byte-identical compilation. |
+| `- D` | Dev-impacting only, but changes compilation or process. E.g., changing text on a dev-only screen, or changes code-review checklist. Alternatively, documentation changes in a source file that are verified by running tests. |
+| `! D` | Alters an important process. Alternatively, documentation changes in a source file that verified only by compiling and launching the application. |
+| `@ D` | Trying out a process change that is intended to gain info, not to necessarily work. Alternatively, documentation changes in a source file that are not verified. |
 
 ## Extension Intentions
 
