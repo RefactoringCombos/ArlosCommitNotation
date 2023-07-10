@@ -27,7 +27,7 @@ We divide all behaviors of the system into 3 sets. The change is intended to alt
 Behavior categories:
 
 * **Intended Change:** The 0 or 1 behavior change intended in the commit. Could be verified by one test assertion. By default, a commit with more than 1 behavior change cannot be represented at any risk level below *Probably Broken*.
-* **Known Invariants:** All behaviors known to the development team at the time the change was made. Automated tests can greatly increse the size of this set, thus enhancing safety when commits are at a risk level that guarantees correctness for Known Invariants. However, this set also includes behaviors that are known but not tested.
+* **Known Invariants:** All behaviors known to the development team at the time the change was made. Automated tests can greatly increase the size of this set, thus enhancing safety when commits are at a risk level that guarantees correctness for Known Invariants. However, this set also includes behaviors that are known but not tested.
 * **Unknown Invariants:** All behaviors not known to the development team at the time the change was made. These behaviors are guaranteed to be untested and untestable, as the development team does not know they exist.
 
 Risk levels:
