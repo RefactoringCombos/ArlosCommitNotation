@@ -19,10 +19,10 @@ We divide all behaviors of the system into 3 sets. The change is intended to alt
 
 | Risk Level | Code | Example | Meaning | Correctness Guarantees |
 | --- | --- | --- | --- | --- |
-| **Known safe** | lowercase letter | `r - Extract method Applesauce` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
-| **Validated** | uppercase letter | `R - Extract method Applesauce` | Addresses all known risks. | Intended Change, Known Invariants |
-| **Risky** | uppercase followed by 2 bangs | `R!! Extract method Applesauce` | Some known risks remain unverified. | Intended Change |
-| **(Probably) Broken** | uppercase followed by 2 stars | `R** Start extracting method with no name` | No risk attestation. |  |
+| **Known safe** | lowercase letter | `. R Extract method Applesauce` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
+| **Validated** | uppercase letter | `- R Extract method Applesauce` | Addresses all known risks. | Intended Change, Known Invariants |
+| **Risky** | uppercase followed by 2 bangs | `! R Extract method Applesauce` | Some known risks remain unverified. | Intended Change |
+| **(Probably) Broken** | uppercase followed by 2 stars | `* R Start extracting method with no name` | No risk attestation. |  |
 
 Behavior categories:
 
@@ -102,10 +102,10 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 | Code | Known Approaches |
 | --- | --- |
-| `r - ` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `R - ` | Test-supported Procedural Refactoring<sup>[3]</sup> |
-| `R!!` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
-| `R**` | Remodeled by editing code, even in small chunks. |
+| `. R` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
+| `- R` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `! R` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
+| `* R` | Remodeled by editing code, even in small chunks. |
 
 ### Documentation
 
