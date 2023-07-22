@@ -47,8 +47,8 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | --- | --- | --- |
 | F | Feature | Change or extend one aspect of program behavior without altering others. |
 | B | Bugfix | Repair one existing, undesirable program behavior without altering any others. |
-| R | Refactoring | Change implementation without changing program behavior. |
-| D | Documentation | Change something which communicates to team members and does not impact program behavior. |
+| r | Refactoring | Change implementation without changing program behavior. |
+| d | Documentation | Change something which communicates to team members and does not impact program behavior. |
 
 ### Feature or Functionality
 
@@ -102,10 +102,10 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 | Code | Known Approaches |
 | --- | --- |
-| `. R` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `^ R` | Test-supported Procedural Refactoring<sup>[3]</sup> |
-| `! R` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
-| `@ R` | Remodeled by editing code, even in small chunks. |
+| `. r` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
+| `^ r` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `! r` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
+| `@ r` | Remodeled by editing code, even in small chunks. |
 
 ### Documentation
 
@@ -121,10 +121,10 @@ Changes that don't impact the code, but do change documentation around the code.
 
 | Code | Known Approaches in source files | Known Approaches in other files |
 | --- | --- | -- |
-| `. D` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process |
-| `^ D` | Verified by running tests, or things like changing text on a dev-only screen. | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
-| `! D` | Verified only by compiling and launching the application. | Alters an important process. |
-| `@ D` | Not verified. | Trying out a process change that is intended to gain info, not to necessarily work. |
+| `. d` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process |
+| `^ d` | Verified by running tests, or things like changing text on a dev-only screen. | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
+| `! d` | Verified only by compiling and launching the application. | Alters an important process. |
+| `@ d` | Not verified. | Trying out a process change that is intended to gain info, not to necessarily work. |
 
 ## Extension Intentions
 
