@@ -3,12 +3,11 @@
 | V1 | V2 |
 | - | - |
 | `x - ` | `. X` |
-| `X - ` | `- X` |
+| `X - ` | `^ X` |
 | `X!!` | `! X` |
 | `X**` | `@ X` |
 
-- consistent casing; lower case becomes `.` and doesn't combine risk and intention in the same place
-- risk before intention
-- risk is a single character
+- Consistent casing; lower case becomes `.` and upper case becomes `^`. Neither combine risk and intention in the same place.
+- Risk before intention
+- Risk is a single character
 - `*` becomes `@`
-

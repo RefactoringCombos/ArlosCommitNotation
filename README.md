@@ -19,10 +19,10 @@ We divide all behaviors of the system into 3 sets. The change is intended to alt
 
 | Risk Level | Code | Example | Meaning | Correctness Guarantees |
 | --- | --- | --- | --- | --- |
-| **Known safe** | lowercase letter | `. R Extract method Applesauce` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
-| **Validated** | uppercase letter | `- R Extract method Applesauce` | Addresses all known risks. | Intended Change, Known Invariants |
-| **Risky** | uppercase followed by 2 bangs | `! R Extract method Applesauce` | Some known risks remain unverified. | Intended Change |
-| **(Probably) Broken** | uppercase followed by 2 stars | `* R Start extracting method with no name` | No risk attestation. |  |
+| **Known safe** | `.` | `. r Extract method` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
+| **Validated** | `^` | `^ r Extract method` | Addresses all known risks. | Intended Change, Known Invariants |
+| **Risky** | `!` | `! r Extract method` | Some known risks remain unverified. | Intended Change |
+| **(Probably) Broken** | `@` | `@ r Start extracting method with no name` | No risk attestation. |  |
 
 Behavior categories:
 
@@ -63,7 +63,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 | Code | Known Approaches |
 | --- | --- |
 | `. F` | Meets all criteria for `- F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging. |
-| `- F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `^ F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `! F` | Change includes unit tests for new behavior. |
 | `@ F` | No automatic tests, or unfinished implementation. |
 
@@ -83,7 +83,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | Code | Known Approaches |
 | --- | --- |
 | `. B` | Meets all criteria for `- B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format. |
-| `- B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `^ B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `! B` | Change includes unit tests for new behavior. |
 | `@ B` | No automatic tests, or unfinished implementation. |
 
@@ -103,9 +103,9 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 | Code | Known Approaches |
 | --- | --- |
 | `. R` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `- R` | Test-supported Procedural Refactoring<sup>[3]</sup> |
+| `^ R` | Test-supported Procedural Refactoring<sup>[3]</sup> |
 | `! R` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage. |
-| `* R` | Remodeled by editing code, even in small chunks. |
+| `@ R` | Remodeled by editing code, even in small chunks. |
 
 ### Documentation
 
@@ -122,7 +122,7 @@ Changes that don't impact the code, but do change documentation around the code.
 | Code | Known Approaches in source files | Known Approaches in other files |
 | --- | --- | -- |
 | `. D` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process |
-| `- D` | Verified by running tests, or things like changing text on a dev-only screen. | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
+| `^ D` | Verified by running tests, or things like changing text on a dev-only screen. | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
 | `! D` | Verified only by compiling and launching the application. | Alters an important process. |
 | `@ D` | Not verified. | Trying out a process change that is intended to gain info, not to necessarily work. |
 
