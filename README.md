@@ -91,7 +91,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 A Refactoring or Remodeling intends to alter the program in some way without changing any behavior. The risk levels indicate the probability of the commit living up to that intention, based on how the code change was executed.
 
-**Intended Change:** 0 behaviors.
+**Intended Change:** 0 runtime behaviors; 1 code structure.
 
 **Known Risks**
 
