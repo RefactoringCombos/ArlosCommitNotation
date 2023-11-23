@@ -73,8 +73,9 @@
 # | Code | Known Approaches                                             |
 # |------|--------------------------------------------------------------|
 # | d -  | Developer-visible documentation not in a source file         |
-# | d -  | Developer-visible documentation verified to generate         |
-# |      |   byte-identical compilation.                                |
+# | d -  | Developer-visible documentation in a source file changed and |
+# |      |   verified to generate byte-identical compilation (the code  |
+# |      |   is provably unchanged).                                    |
 # | D -  | Dev-impacting only, but changes compilation or process.      |
 # |      |   E.g., changing text on a dev-only screen, or               |
 # |      |   changes code-review checklist.                             |
