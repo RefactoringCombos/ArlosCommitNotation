@@ -1,85 +1,51 @@
 
 
 # Arlo's Commit Notation
-# https://github.com/RefactoringCombos/ArlosCommitNotation
-#
-# 1. Choose one of the intentions
-# 2. Characterize the risk of the change
-#
-# == Intention ==
-#
-# |   | Name          | Intention                                       |
-# |---|---------------|-------------------------------------------------|
-# | F | Feature       | Change or extend one aspect of program behavior |
-# |   |               | without altering others.                        |
-# | B | Bugfix        | Repair one existing, undesirable program        |
-# |   |               | behavior without altering any others.           |
-# | R | Refactoring   | Change implementation without changing program  |
-# |   |               | behavior.                                       |
-# | D | Documentation | Change something which communicates to team     |
-# |   |               | members and does not impact program behavior.   |
-#
-# == Risk ==
-# use lowercase, uppercase, and punctuation to show the change risk
-#
-# === Feature Risk ==
-#
-# |     | Known Approaches                                              |
-# |-----|---------------------------------------------------------------|
-# | f - | None known                                                    |
-# | F - | full unit test coverage beforst starting and                  |
-# |     |   change is <= 8 LoC and new code is fully unit tested        |
-# | F!! | Change includes unit tests for new behavior.                  |
-# | F** | No automatic tests, or unfinished implementation.             |
-#
-# === Bug Fix Risk ===
-# A bugfix is a lot like a feature. However, the intention is to change
-# an undesired — and usually unintentional — behavior of the current
-# system.
-#
-# |     | Known Approaches                                              |
-# |-----|---------------------------------------------------------------|
-# | b - | None known                                                    |
-# | B - | Meets all of:                                                 |
-# |     | 1. reviewed original and new behaviour with customer          |
-# |     |   representative                                              |
-# |     | 2. change is <= 8 LoC                                         |
-# |     | 3. the original (buggy) behavior was captured in a unit test  |
-# |     |   prior to this change                                        |
-# |     | 4. change includes 1 changed unit test, matching intended     |
-# |     |   behavior alteration.                                        |
-# | B!! | Change includes unit tests for new behavior.                  |
-# | B** | No automatic tests, or unfinished implementation.             |
-#
-# === Refactoring / Remodelling Risks ===
-# A Refactoring or Remodeling intends to alter the program in some way
-# without changing any behavior.
-#
-# Provable Refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#provable-refactorings
-# Procedural Refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#test-supported-procedural-refactorings
-#
-# |     | Known Approaches                                              |
-# |-----|---------------------------------------------------------------|
-# | r - | Provable refactoring                                          |
-# | r - | Test-supported Procedural Refactoring within test code        |
-# | R - | Test-supported Procedural Refactoring                         |
-# | R!! | Identified single, named refactoring, but executed by editing |
-# |     | code or without whole-project test coverage.                  |
-# | R** | Remodeled by editing code, even in small chunks.              |
-#
-# === Developer Documentation Risks ===
-# Changes that don't impact code or customer facing documentation
-#
-# | Code | Known Approaches                                             |
-# |------|--------------------------------------------------------------|
-# | d -  | Developer-visible documentation not in a source file         |
-# | d -  | Developer-visible documentation in a source file changed and |
-# |      |   verified to generate byte-identical compilation (the code  |
-# |      |   is provably unchanged).                                    |
-# | D -  | Dev-impacting only, but changes compilation or process.      |
-# |      |   E.g., changing text on a dev-only screen, or               |
-# |      |   changes code-review checklist.                             |
-# | D!!  | Alters an important process.                                 |
-# | D**  | Trying out a process change that is intended to gain info,   |
-# |      |   not to work.                                               |
-#
+# | Feature       |     | Approach                                                        |
+# |---------------|-----|-----------------------------------------------------------------|
+# | Feature       | F - | change is <= 8 LoC                                              |
+# |               |     | AND full unit test coverage before                              |
+# |               |     | AND new code is fully unit tested                               |
+# | Feature       | F!! | Change includes unit tests for new behavior.                    |
+# | Feature       | F** | No automatic tests, or unfinished implementation.               |
+# | Feature       | f - | Other                                                           |
+# | ------------- | --- | -------------------------------------------------------------   |
+# | Bug fix       | B - | Meets all of the following                                      |
+# |               |     |   1. reviewed original and new behaviour with customer          |
+# |               |     |     representative                                              |
+# |               |     |   2. change is <= 8 LoC                                         |
+# |               |     |   3. the original (buggy) behavior was captured in a unit test  |
+# |               |     |     prior to this change                                        |
+# |               |     |   4. change includes 1 changed unit test, matching intended     |
+# |               |     |     behavior alteration.                                        |
+# | Bug fix       | B!! | Change includes unit tests for new behavior.                    |
+# | Bug fix       | B** | No automatic tests, or unfinished implementation.               |
+# | Bug fix       | b - | Other                                                           |
+# | ------------- | --- | -------------------------------------------------------------   |
+# | Refactoring   | r - | Provable refactoring [link-1]                                   |
+# | Refactoring   | r - | Test-supported Procedural Refactoring within test code [link-2] |
+# | Refactoring   | R - | Test-supported Procedural Refactoring [link-2]                  |
+# | Refactoring   | R!! | Identified single, named refactoring, but executed by editing   |
+# |               |     | code or without whole-project test coverage.                    |
+# | Refactoring   | R** | Remodeled by editing code, even in small chunks.                |
+# | ------------- | --- | -------------------------------------------------------------   |
+# | Documentation | d - | Developer-visible documentation not in a source file            |
+# | Documentation | d - | Developer-visible documentation in a source file changed and    |
+# |               |     | verified to generate byte-identical compilation (the code       |
+# |               |     | is provably unchanged).                                         |
+# | Documentation | D - | Dev-impacting only, but changes compilation or process.         |
+# |               |     | E.g., changing text on a dev-only screen, or                    |
+# |               |     | changes code-review checklist.                                  |
+# | Documentation | D!! | Alters an important process.                                    |
+# | Documentation | D** | Trying out a process change that is intended to gain info,      |
+# |               |     | not to work.                                                    |
+# 
+# Links:
+#  1. Provable refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#provable-refactorings
+#  2. Procedural refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#test-supported-procedural-refactorings
+# 
+# Definitions
+# - feature vs bug: a feature is a lot like a feature, but the intention is to change an
+#   undesired - and usually unintentional - behavior of the current system.
+# - remodelling / refactoring: alter the program in some way without changing any behaviour. 
+# - developer documentation: changes that don't impact code or customer facing documentation
