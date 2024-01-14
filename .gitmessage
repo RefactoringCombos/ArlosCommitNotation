@@ -8,7 +8,6 @@
 # |               |     | AND new code is fully unit tested                               |
 # | Feature       | F!! | Change includes unit tests for new behavior.                    |
 # | Feature       | F** | No automatic tests, or unfinished implementation.               |
-# | Feature       | f - | Other                                                           |
 # | ------------- | --- | -------------------------------------------------------------   |
 # | Bug fix       | B - | Meets all of the following                                      |
 # |               |     |   1. reviewed original and new behaviour with customer          |
@@ -20,7 +19,6 @@
 # |               |     |     behavior alteration.                                        |
 # | Bug fix       | B!! | Change includes unit tests for new behavior.                    |
 # | Bug fix       | B** | No automatic tests, or unfinished implementation.               |
-# | Bug fix       | b - | Other                                                           |
 # | ------------- | --- | -------------------------------------------------------------   |
 # | Refactoring   | r - | Provable refactoring [link-1]                                   |
 # | Refactoring   | r - | Test-supported Procedural Refactoring within test code [link-2] |
