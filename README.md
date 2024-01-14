@@ -158,6 +158,24 @@ Therefore, we treat any feature or bug fix as high risk if it changes more than 
 
 One good approach to enable small features is to refactor until the feature change is easy, then add it. Then add the feature one piece at a time, with a test for each.
 
+# Tool Support
+## Git CLI
+Git allows you to specify a user-specific commit message template that shows up
+when you run `git commit`. [`.gitmessage`](./.gitmessage) contains a plaintext
+version of this document formatted for use as a git commit template. You can use
+it by following these steps:
+
+1. Download `.gitmessage`
+2. Move `.gitmessage` to your home directory (`mv path/to/your/Downloads/.gitmessage ~/.gitmessage`)
+3. Configure `git` to look for this message: `git config --global commit.template ~/.gitmessage`
+4. Try it out -- in any git repo, make some change, stage it, then run `git
+   commit`. You'll know it's working if you see the contents of `.gitmessage` in
+   your commit message editor.
+
+Note that you won't see this template when you are `--amend`ing a commit, when
+you provide `-m` to `git commit`, during interactive rebases, and any other time
+where the commit message already exists or is provided by another tool.
+
 # Living Documentation
 
 We invite you to submit pull requests to help evolve this notation and methodology.
