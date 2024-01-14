@@ -49,7 +49,8 @@
 # |               |     |                                                                 |
 # |               | D** | Trying out a process change that is intended to gain info,      |
 # |               |     | not to work.                                                    |
-# 
+# |---------------|-----|-----------------------------------------------------------------|
+#
 # Links:
 #  1. Provable refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#provable-refactorings
 #  2. Procedural refactoring: https://github.com/RefactoringCombos/ArlosCommitNotation#test-supported-procedural-refactorings
