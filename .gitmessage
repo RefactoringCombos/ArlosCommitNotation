@@ -1,7 +1,7 @@
 
 
 # Arlo's Commit Notation
-# | Feature       |     | Approach                                                        |
+# | Intention     |     | Approach                                                        |
 # |---------------|-----|-----------------------------------------------------------------|
 # | Feature       | F - | change is <= 8 LoC                                              |
 # |               |     | AND full unit test coverage before                              |
