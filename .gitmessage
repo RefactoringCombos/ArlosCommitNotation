@@ -6,8 +6,8 @@
 # | Feature       | F - | change is <= 8 LoC                                              |
 # |               |     | AND full unit test coverage before                              |
 # |               |     | AND new code is fully unit tested                               |
-# | Feature       | F!! | Change includes unit tests for new behavior.                    |
-# | Feature       | F** | No automatic tests, or unfinished implementation.               |
+# |               | F!! | Change includes unit tests for new behavior.                    |
+# |               | F** | No automatic tests, or unfinished implementation.               |
 # | ------------- | --- | -------------------------------------------------------------   |
 # | Bug fix       | B - | Meets all of the following                                      |
 # |               |     |   1. reviewed original and new behaviour with customer          |
@@ -17,25 +17,25 @@
 # |               |     |     prior to this change                                        |
 # |               |     |   4. change includes 1 changed unit test, matching intended     |
 # |               |     |     behavior alteration.                                        |
-# | Bug fix       | B!! | Change includes unit tests for new behavior.                    |
-# | Bug fix       | B** | No automatic tests, or unfinished implementation.               |
+# |               | B!! | Change includes unit tests for new behavior.                    |
+# |               | B** | No automatic tests, or unfinished implementation.               |
 # | ------------- | --- | -------------------------------------------------------------   |
 # | Refactoring   | r - | Provable refactoring [link-1]                                   |
-# | Refactoring   | r - | Test-supported Procedural Refactoring within test code [link-2] |
-# | Refactoring   | R - | Test-supported Procedural Refactoring [link-2]                  |
-# | Refactoring   | R!! | Identified single, named refactoring, but executed by editing   |
+# |               | r - | Test-supported Procedural Refactoring within test code [link-2] |
+# |               | R - | Test-supported Procedural Refactoring [link-2]                  |
+# |               | R!! | Identified single, named refactoring, but executed by editing   |
 # |               |     | code or without whole-project test coverage.                    |
-# | Refactoring   | R** | Remodeled by editing code, even in small chunks.                |
+# |               | R** | Remodeled by editing code, even in small chunks.                |
 # | ------------- | --- | -------------------------------------------------------------   |
 # | Documentation | d - | Developer-visible documentation not in a source file            |
-# | Documentation | d - | Developer-visible documentation in a source file changed and    |
+# |               | d - | Developer-visible documentation in a source file changed and    |
 # |               |     | verified to generate byte-identical compilation (the code       |
 # |               |     | is provably unchanged).                                         |
-# | Documentation | D - | Dev-impacting only, but changes compilation or process.         |
+# |               | D - | Dev-impacting only, but changes compilation or process.         |
 # |               |     | E.g., changing text on a dev-only screen, or                    |
 # |               |     | changes code-review checklist.                                  |
-# | Documentation | D!! | Alters an important process.                                    |
-# | Documentation | D** | Trying out a process change that is intended to gain info,      |
+# |               | D!! | Alters an important process.                                    |
+# |               | D** | Trying out a process change that is intended to gain info,      |
 # |               |     | not to work.                                                    |
 # 
 # Links:
