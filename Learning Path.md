@@ -188,7 +188,7 @@ Invite developers/pairs/ensembles to use other risk and intent annotations as th
 
 Roll out in these increments:
 
-1. Categorize (`@ F` / `@B` / `@ r` / `@ @`)
+1. Categorize (`@ F` / `@ B` / `@ r` / `@ @`)
 2. Corral Risk (`! F`, `! B` / `! r`)
 3. Validated (`^ F` / `^ B` / `^ r`)
 4. Safe (`. r`)
