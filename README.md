@@ -73,7 +73,7 @@ Each intention may be expressed in UPPERCASE or lowercase. The team uses this di
 | --- | --- |
 | `. F` | Meets all criteria for `^ F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging. |
 | `^ F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
-| `! F` | Change includes unit tests for new behavior. |
+| `! F` | Change includes automated tests for new behavior. |
 | `@ F` | No automatic tests, or unfinished implementation. |
 
 ### Bugfix
@@ -93,7 +93,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 | --- | --- |
 | `. B` | Meets all criteria for `^ B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format. |
 | `^ B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
-| `! B` | Change includes unit tests for new behavior. |
+| `! B` | Change includes automated tests for new behavior. |
 | `@ B` | No automatic tests, or unfinished implementation. |
 
 ### Refactoring or Remodeling
