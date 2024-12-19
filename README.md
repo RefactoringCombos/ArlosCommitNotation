@@ -1,4 +1,6 @@
-# Arlo's Commit Notation
+# Risk Aware Commit Notation
+
+<p style="font-size: 80%;margin: -1.6em 0 3em;">(aka Arlo's Commit Notation)</p>
 
 This commit notation allows developers to convey 2 critical pieces of metadata about each commit:
 
