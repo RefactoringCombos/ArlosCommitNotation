@@ -2,9 +2,9 @@
 
 For a team that has never tried disciplined refactoring there is a steep learning curve to adopt this system.
 
-To reduce that challenge, here we describe the tiniest increments to learning and adopting Arlo's Commit Notation. This way you can get used to one idea before getting overwhelmed by the next idea, and get a quicker return on the learning investment.
+To reduce that challenge, here we describe the tiniest increments to learning and adopting the Risk Aware Commit Notation. This way you can get used to one idea before getting overwhelmed by the next idea, and get a quicker return on the learning investment.
 
-Expect some disagreement and confusion in the team throughout this process, as people shift their thinking. As you find agreement, write down your new norms in your team agreements. Give feedback to Arlo's Commit Notation about how it could be been clearer for you.
+Expect some disagreement and confusion in the team throughout this process, as people shift their thinking. As you find agreement, write down your new norms in your team agreements.
 
 Hint: this all goes much more smoothly with Mob/Ensemble Programming ([Promiscuious Pairing](https://csis.pace.edu/~grossman/dcs/XR4-PromiscuousPairing.pdf) is also pretty good) to share knowledge, increase "insights per hour", and shift norms more quickly.
 
@@ -37,7 +37,7 @@ The refactoring need not be especially disciplined. This is just about separatin
 
 Folks on your team probably have [multiple working defintions of refactoring](https://jay.bazuzi.com/DefinitionsOfRefactoring/), and this is an invitation to examine those defintions and find a shared understanding.
 
-Refactorings often have a large diff even though they don't change behavior and are out of proportion with the conceptual size of the change. For example "rename A to B" is one small idea but every line that references `A` will be affected. If combined with deliberate behavior changes that will make reading the total diff difficult. Separating refactorings into their own commits will make code review easier. You should be able to scan the commit history and easily see which are refactorings and which are not.
+Refactorings often have a large diff even though they don't change behavior and are out of proportion with the conceptual size of the change. For example "rename A to B" is one small idea but every line that references `A` will be affected. Combining refactorings with deliberate behavior changes makes reading the total diff difficult. Separating refactorings into their own commits will make code review easier. You should be able to scan the commit history and easily see which are refactorings and which are not.
 
 ### Example commit history
 
@@ -47,7 +47,7 @@ Implement automatic log-off
 @ r Rename a bunch of stuff for clarity
 ```
 
-For a future reader of the code trying to understand how the code got this way, if you're looking for a deliberate behavior change you know you can ignore `@ r` changes; if you see a behavior change in a commit marked `@ r` you know it was accidental.
+A future reader of the code trying to understand how the code got this way, if you're looking for a deliberate behavior change you know you can ignore `@ r` changes; if you see a behavior change in a commit marked `@ r` you know it was accidental.
 
 ## 3. Pick up easy wins
 
@@ -55,14 +55,14 @@ Once the team has learned the above practices, the following tags are easy to ad
 
 - `. t` for test-only changes
 - `. a` for auto-formatting
-- `! R` for named refactorings
+- `! r` for named refactorings
 
 ### Example commit history
 
 ```
-. t - fill in missing tests for existing login code
-! R Extract Method
-. a - autoformat with prettier
+. t fill in missing tests for existing login code
+! r Extract Method
+. a autoformat with prettier
 ```
 
 If you haven't already, this is a good time to add automatic code formatting to your CI checks, and bring all existing code in to compliance with that formatting.
@@ -80,14 +80,22 @@ At this point you can considering adopting a regex check to ensure that all comm
 ```
 @ F Implement automatic log-off
 @ r Remove duplication in login module
-@ r Rename a bunch of stuff for clarity
+! r Several renames for clarity
 ```
 
 ## 5. Refactor to prepare code for behavior change
 
 > Make the change easy (warning: this may be hard), then make the easy change. -- Kent Beck
 
-For each feature or bug fix, practice replacing "how can I get this behavior change to fit in to the current design?" with "what design would make it really easy to implement this feature in a natural way?" and "what small refactorings would it take to get from here to there?". You're looking for `! r`-style, single named refactorings. Commit histories will start to look like a series of refactorings followed by a deliberate behavior change.
+The team makes the following behavior change:
+
+* **When** about to start a feature or bug fix,
+* **We used to** attempt to fit this behavior change to fit in to the current design.
+* **Now we**
+  1. identify what design would make it really easy to implement this feature in a natural way, and
+  2. what small refactorings would get from here to there.
+
+You're looking for `! r`-style, single named refactorings. Commit histories will start to look like a series of refactorings followed by a deliberate behavior change.
 
 ### Example commit history
 
@@ -107,7 +115,7 @@ Can your IDE safely execute a refactoring? If so, you can use `. r`. This is gre
 
 Where your IDE is unable to provide the required level of safety, look at [recipe-based refactorings](https://github.com/InnovatingTeams/provable-refactorings). 
 
-Once your team has gotten comfortable with `. r`, consider changing your code review and delivery protocols to allow lower-case (safe) changes to skip some/most/all of those requirements. This has several benefits, including creating an incentive for developers to work in this safe way.
+Once your team has gotten comfortable with `. r`, consider changing your code review and delivery protocols to allow `.` (safe) changes to skip some/most/all of those requirements. This has several benefits, including creating an incentive for developers to work in this safe way.
 
 Note that this level of safety is hard to get in dynamic languages. If that's your context, you may need to instead make the investment in comprehensive test coverage to unlock `^ r`.
 
@@ -121,7 +129,7 @@ Note that this level of safety is hard to get in dynamic languages. If that's yo
 
 ## 7. Small features and bug fixes
 
-Once you get in familiar with refactoring in preparation for a feature, you can further reduce risk by refactoring to the point where a feature or bug fix only requires a small code change. That unlocks `^ F` and `^ B`.
+Once you get familiar with refactoring in preparation for a feature, you can further reduce risk by refactoring to the point where a feature or bug fix only requires a small code change. That unlocks `^ F` and `^ B`.
 
 ### Example commit history
 
@@ -141,18 +149,19 @@ Once you get in familiar with refactoring in preparation for a feature, you can 
 . r Extract Method
 ```
 
-# TDD with ACN
+# TDD with RACN
 
-In a strict Test-Driven Development cycle almost all commits are either a new test or a refactoring. When using ACN:
+In a strict Test-Driven Development cycle almost all commits are either a new test or a refactoring. When using RACN:
 
 1. Write a new failing test (Red)
+    * (optional) Negate the assertion or mark the test as expected to fail and commit with `. t <name or description of the new behavior being tested>`
 1. Make it pass (Green)
-1. Commit with `. t <name of the new test>`.
+1. Commit with `. f` or `. F`.
 1. Refactor.
 1. Commit each refactoring.
     - If the refactoring is executed with a known safe tool or recipe, use `. r`.
     - If this is new, un-called code and you have been doing TDD since the start, you probably have the test coverage to use `^ r`.
-    - If you are "triangulating", converting special-case code to a generalized algorithm, use may need to use `@ R`.
+    - If you are "triangulating", converting special-case code to a generalized algorithm, use may need to use `@ r`.
 
 ### Example commit history
 
