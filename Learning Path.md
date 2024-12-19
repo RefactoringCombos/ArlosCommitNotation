@@ -2,7 +2,7 @@
 
 For a team that has never tried disciplined refactoring there is a steep learning curve to adopt this system.
 
-To reduce that challenge, here we describe the tiniest increments to learning and adopting the Risk Aware Commit Notation. This way you can get used to one idea before getting overwhelmed by the next idea, and get a quicker return on the learning investment.
+To reduce that challenge, here we describe the tiniest increments to learning and adopting the Risk-Aware Commit Notation. This way you can get used to one idea before getting overwhelmed by the next idea, and get a quicker return on the learning investment.
 
 Expect some disagreement and confusion in the team throughout this process, as people shift their thinking. As you find agreement, write down your new norms in your team agreements.
 
