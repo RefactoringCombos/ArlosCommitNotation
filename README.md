@@ -21,7 +21,7 @@ We divide all behaviors of the system into 3 sets. The change is intended to alt
 
 | Risk Level | Code | Example | Meaning | Correctness Guarantees |
 | --- | --- | --- | --- | --- |
-| **Known safe** | `.` | `. r Extract method` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
+| **(Proven) Safe** | `.` | `. r Extract method` | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
 | **Validated** | `^` | `^ r Extract method` | Addresses all known risks. | Intended Change, Known Invariants |
 | **Risky** | `!` | `! r Extract method` | Some known risks remain unverified. | Intended Change |
 | **(Probably) Broken** | `@` | `@ r Start extracting method with no name` | No risk attestation. |  |
@@ -34,7 +34,7 @@ Behavior categories:
 
 Risk levels:
 
-* **Known safe:** Developer performed the task in a way that prevents all potential risks, even to invariants that developer is not aware of.
+* **Safe:** Developer performed the task in a way that prevents all potential risks, even to invariants that developer is not aware of.
 * **Validated:** Developer performed the task in some way that includes validation for the intended change and all invarants the developer thought of. The most common technique is developer-written automated tests.
 * **Risky:** Developer is aware of risks and attempted to mitigate them as much as possible, but only the intended change is formally verified. Commonly this includes a manual change that the developer could not fully verify.
 * **Broken:** Either known to be broken, or developer couldn't even check to see if it works. May not compile. Used when the developer cannot see the results of the work without checking in, or as a savepoint when the developer is about to switch tasks or direction.
