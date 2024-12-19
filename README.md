@@ -47,10 +47,17 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 
 | Prefix | Name | Intention |
 | --- | --- | --- |
-| F | Feature | Change or extend one aspect of program behavior without altering others. |
-| B | Bugfix | Repair one existing, undesirable program behavior without altering any others. |
-| r | Refactoring | Change implementation without changing program behavior. |
-| d | Documentation | Change something which communicates to team members and does not impact program behavior. |
+| `F` or `f` | Feature | Change or extend one aspect of program behavior without altering others. |
+| `B` or `b` | Bugfix | Repair one existing, undesirable program behavior without altering any others. |
+| `R` or `r` | Refactoring | Change implementation without changing program behavior. |
+| `D` or `d` | Documentation | Change something which communicates to team members and does not impact program behavior. |
+
+### Casing
+
+Each intention may be expressed in UPPERCASE or lowercase. The team uses this distinction to mean roughly "pay more attention to the ones in uppercase". Teams commonly use this for one of 2 different meanings.
+
+* **Intended behavior change**. UPPERCASE means the commit intended to change 1 behavior; lowercase means it intended to change 0 behaviors. With this approach, functionality changes would always be `F`, bugfixes `B`, refactorings `r`, and documentation `d`.
+* **User-visibility**. UPPERCASE means the commit altered something user-visible. It should appear in the changelog or other documentation (perhaps in summarized for combined with other uppercase changes); lowercase means the behavior change is entirely internal. With this approach all letters can have both forms. Even a refactoring could be `R` if, for example, it adds to an internal API and you want to communicate that to other development teams.
 
 ### Feature or Functionality
 
@@ -113,7 +120,7 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 
 **Intended Change:** 0 behaviors.
 
-Changes that don't impact the code, but do change documentation around the code. Note that this does not include end-user documentation<sup>[1]</sup>.
+Changes that don't impact the code, but do change documentation around the code. The team should decide whether end-user documentation changes are `D` or `F`<sup>[1]</sup>.
 
 **Known Risks**
 
@@ -164,7 +171,9 @@ Requirement 3 is there because many refactorings can have non-local effects. It 
 # End-User Documentation
 [1]:#end-user-documentation
 
-End user documentation is a feature, bugfix, or refactoring, depending on its nature. Use those codes (including levels of risk) accordingly.
+Changing end user documentation changes behaviors, so can be considered a feature, bugfix, or refactoring, depending on its nature. Most teams use those codes (including levels of risk) accordingly.
+
+However, teams that use case to distinguish user-visible and user-invisible behavior changes may wish to use `D` for end user documentation changes instead. This loses the ability to see the full intention of the change, but highlights that it was focused on documentation. Do whatever is most expressive for that commit.
 
 # Small Features and Bug Fixes
 [4]:#small-features-and-bug-fixes
