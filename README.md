@@ -28,7 +28,7 @@ We divide all behaviors of the system into 3 sets. The change is intended to alt
 
 Behavior categories:
 
-* **Intended Change:** The 0 or 1 behavior change intended in the commit. Could be verified by one test assertion. By default, a commit with more than 1 behavior change cannot be represented at any risk level below *Probably Broken*.
+* **Intended Change:** The 0 or 1 behavior change intended in the commit. Could be verified by one test assertion. By default, a commit with more than 1 behavior change cannot be represented at any risk level better than *Probably Broken*.
 * **Known Invariants:** All behaviors known to the development team at the time the change was made. Automated tests can greatly increase the size of this set, thus enhancing safety when commits are at a risk level that guarantees correctness for Known Invariants. However, this set also includes behaviors that are known but not tested.
 * **Unknown Invariants:** All behaviors not known to the development team at the time the change was made, including behaviors that were once known but have been forgotten. These behaviors are guaranteed to be untested and untestable, as the development team does not know they exist.
 
@@ -64,7 +64,7 @@ Each intention can appear at any of the 4 risk levels. Each intention's full det
 
 | Code | Known Approaches |
 | --- | --- |
-| `. F` | Meets all criteria for `- F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging. |
+| `. F` | Meets all criteria for `^ F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging. |
 | `^ F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
 | `! F` | Change includes unit tests for new behavior. |
 | `@ F` | No automatic tests, or unfinished implementation. |
@@ -84,7 +84,7 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 
 | Code | Known Approaches |
 | --- | --- |
-| `. B` | Meets all criteria for `- B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format. |
+| `. B` | Meets all criteria for `^ B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format. |
 | `^ B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
 | `! B` | Change includes unit tests for new behavior. |
 | `@ B` | No automatic tests, or unfinished implementation. |
@@ -135,7 +135,7 @@ The basic intention annotations are comprehensive to describe any kind of change
 # Provable Refactorings
 [2]:#provable-refactorings
 
-If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing, or lengthy conversations about accepting the pull request to trunk.
+If you can get a series of commits that is all lowercase commits, you can deploy without the need for Regression Testing or lengthy conversations about accepting the pull request to trunk.
 
 A provable refactoring requires a burden of proof. The main methods of proof are
 * automated refactoring via tool, with knowledge of tool bugs.
@@ -156,7 +156,7 @@ These are refactorings with a lower standard of proof:
     2. you are working on new code that is not yet called.
 4. You followed the published steps, including running full-suite test runs when indicated.
 
-Note that this can not prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
+Note that this cannot prove bug-for-bug compatibility. It can only demonstrate that you didn't cause any problems that have been thought of before; it does not demonstrate safety for novel bugs.
 
 Requirement 3 is there because many refactorings can have non-local effects. It is not sufficient to have great tests on the code you are changing. You also need great tests on the code that you are not intending to change, to demonstrate that you didn't. Therefore, until your entire codebase is very highly tested, you will only be able to use the `.` risk level on new code that is uncalled by your product.
 
@@ -170,13 +170,13 @@ End user documentation is a feature, bugfix, or refactoring, depending on its na
 
 Features and bug fixes intentionally change behavior. This makes them much riskier than refactorings. It is not possible to prove that they have only the intended effect. However, small changes are much lower risk for three reasons:
 
-1. It's only possible when the code is well-organized already.
-2. It's easy to see the possible side effects of small chunks of code.
-3. It's easy to code review, so you are likely to get good reviews.
+1. It's easy to see the possible side effects of small chunks of code.
+2. It's easy to code review, so you are likely to get good reviews.
+3. It's only possible when the code is well-organized already.
 
 Therefore, we treat any feature or bug fix as high risk if it changes more than 8 lines of code in one commit. This includes test changes.
 
-One good approach to enable small features is to refactor until the feature change is easy, then add it. Then add the feature one piece at a time, with a test for each.
+One good approach to enable small features is to refactor until the feature change is easy. Then add the feature one piece at a time, with a test for each.
 
 # Living Documentation
 
