@@ -139,7 +139,8 @@ If you can get a series of commits that is all lowercase commits, you can deploy
 
 A provable refactoring requires a burden of proof. The main methods of proof are
 * automated refactoring via tool, with knowledge of tool bugs.
-* Scripted manual refactoring, using the compiler to verify each step. [Recipes Here](https://github.com/InnovatingTeams/provable-refactorings)
+* scripted manual refactoring, using the compiler to verify each step. [Recipes Here](https://github.com/InnovatingTeams/provable-refactorings)
+* use formal methods to prove the before state and after state are equal.
 
 With discipline these can prove bug-for-bug compatibility. They demonstrate safety for unknown bugs, even guaranteeing that you do not accidentally fix a bug you don't know exists (but your customers may be depending on).
 
