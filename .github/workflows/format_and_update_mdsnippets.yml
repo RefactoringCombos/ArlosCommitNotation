@@ -1,0 +1,19 @@
+name: Format and Update MDSnippets
+on:
+  push:
+jobs:
+  format_and_snippets:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run format_and_update_mdsnippets
+      run: ./format_and_update_mdsnippets
+    - name: Git Commit and Push
+      uses: github-actions-x/commit@v2.9
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        commit-message: ". d format and update mdsnippets"
+        rebase: 'true'
+        push-branch: 'main'
+        name: GitHub Actions [bot]
+        email: actions@github.com 
