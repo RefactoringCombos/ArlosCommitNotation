@@ -7,7 +7,7 @@ Consider our code history like a piece of classical music. It is long, but there
 We convey movements by using the following 3 behaviors.
 
 1. Make a new branch for each idea. Keep the ideas small.
-2. Use the Risk Aware Commit Notation on the branch.
+2. Use the Risk-Aware Commit Notation on the branch.
 3. Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) in the merge commit. Convey the core idea for the movement.
 
 There is also one optional behavior:
