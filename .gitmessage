@@ -1,24 +1,27 @@
 
-#. X Enable snarzle bifurcation
+#@ F Enable snarzle bifurcation
 # \ \ \
 #  \ \ Commit message
 #   \ Change Type
 #    Risk Level
 #
-# Risk-Aware Commit Notation Cheat Sheet
+# .----------------------------------------.
+# | Risk-Aware Commit Notation Cheat Sheet |
+# '----------------------------------------'
 #
 # For details, see
 # https://github.com/RefactoringCombos/ArlosCommitNotation
 #
-#
+# .---.-------------------.--------------------------------------.
 # |   | Risk Level        | Meaning                              |
 # |---|-------------------|--------------------------------------|
 # | . | (Proven) Safe     | Addresses all known & unknown risks  |
 # | ^ | Validated         | Addresses all known risks            |
 # | ! | Risky             | Some known risks remain unverified   |
 # | @ | (Probably) Broken | No risk attestation                  |
+# '---'-------------------'--------------------------------------'
 #
-#
+# .---.---------------.------------------------------------------.
 # |   | Change Type   | Meaning                                  |
 # |---|---------------|------------------------------------------|
 # | F | Feature       | Change or extend one aspect of program   |
@@ -33,7 +36,7 @@
 # | d | Documentation | Change something which communicates to   |
 # |   |               | team members and does not impact         |
 # |   |               | program behavior.                        |
-# |---|---------------|------------------------------------------|
+# '---'---------------'------------------------------------------'
 #
 # Change type casing can have several meanings based on your preference.
-# Refer to the docs for details.
+# Refer to the full docs for details.
