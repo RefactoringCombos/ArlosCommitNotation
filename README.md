@@ -11,7 +11,7 @@ This is particularly useful when:
 
 1. As a reviewer, deciding whether to approve a pull request
 2. As a developer, getting your pull request approved faster and more easily
-4. Reading `main` &mdash; just the pull request commit summaries to understand the history of changes for a release.
+4. Reading `main` &mdash; use [Movement-oriented branches](Movement%20Branches.md) and read just the merge commits.
 
 ## The Four Risk Levels
 
