@@ -15,7 +15,7 @@ This is particularly useful when:
 
 ## The Four Risk Levels
 
-We divide all behaviors of the system into 3 sets. The change is intended to alter the *Intended Change* while not altering any of the *Invariants*. The *Risk Levels* are based on correctness guarantees: which invariants can this commit guarantee did not change, and can this commit guarantee that it changed the intended change in the way the authors intended?
+We divide all behaviors of the system into 3 sets (intended change, known invariants, and unknown invariants). The change is intended to alter the *Intended Change* while not altering any of the *Invariants*. The *Risk Levels* are based on correctness guarantees: which invariants can this commit guarantee did not change, and can this commit guarantee that it made the intended change in the way the authors intended?
 
 | Risk Level            | Code | Example                                    | Meaning                                | Correctness Guarantees                                |
 |-----------------------|------|--------------------------------------------|----------------------------------------|-------------------------------------------------------|
