@@ -19,10 +19,10 @@ We divide all behaviors of the system into 3 sets (intended change, known invari
 
 | Risk Level            | Code | Example                                    | Meaning                                | Correctness Guarantees                                |
 |-----------------------|------|--------------------------------------------|----------------------------------------|-------------------------------------------------------|
-| **(Proven) Safe**     | `.`  | `. r Extract method`                       | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
-| **Validated**         | `^`  | `^ r Extract method`                       | Addresses all known risks.             | Intended Change, Known Invariants                     |
-| **Risky**             | `!`  | `! r Extract method`                       | Some known risks remain unverified.    | Intended Change                                       |
-| **(Probably) Broken** | `@`  | `@ r Start extracting method with no name` | No risk attestation.                   |                                                       |
+| **(Proven) Safe**     | `.` or 💚  | `💚 r Extract method`                       | Addresses all known and unknown risks. | Intended Change, Known Invariants, Unknown Invariants |
+| **Validated**         | `^` or ✅ | `✅ r Extract method`                       | Addresses all known risks.             | Intended Change, Known Invariants                     |
+| **Risky**             | `!` or 💣 | `💣 r Extract method`                       | Some known risks remain unverified.    | Intended Change                                       |
+| **(Probably) Broken** | `@` or 💥 | `💥 r Start extracting method with no name` | No risk attestation.                   |                                                       |
 
 Behavior categories:
 
@@ -67,12 +67,12 @@ Each intention may be expressed in UPPERCASE or lowercase. The team uses this di
 * May alter a piece of this feature that you intended to remain unchanged.
 * May implement the intended change in a way different than intended.
 
-| Code  | Known Approaches                                                                                                                                                                                                                                        |
+| Encoding  | Known Approaches                                                                                                                                                                                                                                        |
 |-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `. F` | Meets all criteria for `^ F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging.                                                                                             |
-| `^ F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
-| `! F` | Change includes unit tests for new behavior.                                                                                                                                                                                                            |
-| `@ F` | No automatic tests, or unfinished implementation.                                                                                                                                                                                                       |
+| `💚 F` | Meets all criteria for `✅ F` and developers are the only users of the feature. For example, extends build tooling for your own build or adds debug logging.                                                                                             |
+| `✅ F` | Meets all of:<ul><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Feature was fully unit tested prior to this change.</li><li>Change includes new or changed unit tests to match intended behavior alteration.</li></ul> |
+| `💣 F` | Change includes unit tests for new behavior.                                                                                                                                                                                                            |
+| `💥 F` | No automatic tests, or unfinished implementation.                                                                                                                                                                                                       |
 
 ### Bugfix
 
@@ -87,12 +87,12 @@ A bugfix is a lot like a feature. However, the intention is to change an undesir
 * May alter a piece of this feature that you intended to remain unchanged.
 * May implement the intended change in a way different than intended.
 
-| Code  | Known Approaches                                                                                                                                                                                                                                                                                                                                         |
+| Encoding  | Known Approaches                                                                                                                                                                                                                                                                                                                                         |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `. B` | Meets all criteria for `^ B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format.                                                                                                                                                                       |
-| `^ B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
-| `! B` | Change includes unit tests for new behavior.                                                                                                                                                                                                                                                                                                             |
-| `@ B` | No automatic tests, or unfinished implementation.                                                                                                                                                                                                                                                                                                        |
+| `💚 B` | Meets all criteria for `✅ B` and developers are the only users of the changed functionality. For example, fixes build tooling for your own build or corrects debug logging format.                                                                                                                                                                       |
+| `✅ B` | Meets all of:<ul><li>Reviewed current and new behavior with customer representative.</li><li>Change is <= 8 <abbr title="lines of code">LoC</abbr><sup>[5]</sup></li><li>Bug's original (buggy) behavior was captured in a unit test prior to this change.</li><li>Change includes 1 changed unit test, matching intended behavior alteration.</li></ul> |
+| `💣 B` | Change includes unit tests for new behavior.                                                                                                                                                                                                                                                                                                             |
+| `💥 B` | No automatic tests, or unfinished implementation.                                                                                                                                                                                                                                                                                                        |
 
 ### Refactoring or Remodeling
 
@@ -107,12 +107,12 @@ A Refactoring or Remodeling intends to alter the program in some way without cha
 * May change a behavior in a way that doesn't impact a user.
 * May force a test update.
 
-| Code  | Known Approaches                                                                                                                                   |
+| Encoding  | Known Approaches                                                                                                                                   |
 |-------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `. r` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
-| `^ r` | Test-supported Procedural Refactoring<sup>[3]</sup>                                                                                                |
-| `! r` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage.                                         |
-| `@ r` | Remodeled by editing code, even in small chunks.                                                                                                   |
+| `💚 r` | One of: <ul><li>Provable refactoring<sup>[2]</sup></li><li>Test-supported Procedural Refactoring<sup>[3]</sup> entirely within test code</li></ul> |
+| `✅ r` | Test-supported Procedural Refactoring<sup>[3]</sup>                                                                                                |
+| `💣 r` | Identified single, named refactoring, but executed by editing code or without whole-project test coverage.                                         |
+| `💥 r` | Remodeled by editing code, even in small chunks.                                                                                                   |
 
 ### Documentation
 
@@ -126,12 +126,12 @@ Changes that don't impact the code, but do change documentation around the code.
 * May mislead other stakeholders.
 * May alter team processes in ways that have unintended consequences.
 
-| Code  | Known Approaches in source files                                                 | Known Approaches in other files                                                             |
+| Encoding  | Known Approaches in source files                                                 | Known Approaches in other files                                                             |
 |-------|----------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| `. d` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process                          |
-| `^ d` | Verified by running tests, or things like changing text on a dev-only screen.    | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
-| `! d` | Verified only by compiling and launching the application.                        | Alters an important process.                                                                |
-| `@ d` | Not verified.                                                                    | Trying out a process change that is intended to gain info, not to necessarily work.         |
+| `💚 d` | Developer-visible documentation verified to generate byte-identical compilation. | Any developer-visible documentation that does not change a process                          |
+| `✅ d` | Verified by running tests, or things like changing text on a dev-only screen.    | Dev-impacting only, but changes compilation or process. E.g. changes code-review checklist. |
+| `💣 d` | Verified only by compiling and launching the application.                        | Alters an important process.                                                                |
+| `💥 d` | Not verified.                                                                    | Trying out a process change that is intended to gain info, not to necessarily work.         |
 
 ## Extension Intentions
 
